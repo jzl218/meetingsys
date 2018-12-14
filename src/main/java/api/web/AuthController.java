@@ -89,8 +89,8 @@ public class AuthController {
         }
         String jwt= CryptoUtil.issueJwt(
                 ShiroUtils.getShiroProperties().getJwtSecretKey()
-                , userDto.getId().toString()
-                , userDto.getId().toString()
+                , userDto.getId()
+                , userDto.getId()
                 , 10000*6*60*24*15l
                 , "base"
                 ,null
@@ -107,8 +107,9 @@ public class AuthController {
 
     @PostMapping("/updatepass")//TODO
     public Result updatePass(@RequestBody PassDto passDto){
-        if (passDto.getOldepass().equals(accountProvider.getNowAccout().getPassword()))
+        if (passDto.getOldpass().equals(accountProvider.getNowAccout().getPassword()))
         accountProvider.getNowAccout().setPassword(passDto.getNewpass());
+        else return ResultUtil.Error("旧密码输入错误");
         if (accountRepository.save(accountProvider.getNowAccout())!=null)
             return ResultUtil.Success();
         else

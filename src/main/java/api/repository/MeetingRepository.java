@@ -34,4 +34,5 @@ public interface MeetingRepository extends JpaRepository<Meeting,Integer> {
     List<Meeting> findByOriginatorAndState(String originator,int state);
 
     List<Meeting> findByIdInAndState(List<Integer> id,int state);
+
 }

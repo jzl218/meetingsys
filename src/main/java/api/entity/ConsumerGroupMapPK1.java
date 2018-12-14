@@ -5,7 +5,7 @@ public class ConsumerGroupMapPK1 implements Serializable{
 
     private int meeting;
 
-    private int account;
+    private String account;
 
 
 }

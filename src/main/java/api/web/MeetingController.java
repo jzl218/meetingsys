@@ -107,7 +107,7 @@ public class MeetingController {
             BeanUtils.copyProperties(meetingDto,meeting);
             meeting.setInvitecode(UUID.randomUUID().toString());
             meeting.setState(0);
-            meeting.setOriginator(accountProvider.getNowAccout().getAccount());
+            meeting.setOriginator(accountProvider.getNowAccout().getId());
             meeting.setIsentered(0);
             meetingRepository.save(meeting);
             return ResultUtil.Success(meeting);
@@ -205,6 +205,15 @@ public class MeetingController {
                     return meetingAcoount.getMeeting();
                 }).collect(Collectors.toList());
         return ResultUtil.Success(meetingRepository.findByIdInAndState(id,state).size());
+    }
+
+
+    @GetMapping("/selectbyinvitecode")//TODO
+    public Result selectByInviteCode(String inviteCode){
+        Meeting meeting=meetingRepository.findByInvitecode(inviteCode);
+        MeetingVO meetingVO=new MeetingVO();
+        BeanUtils.copyProperties(meeting,meetingVO);
+        return ResultUtil.Success(meetingVO);
     }
 
 
