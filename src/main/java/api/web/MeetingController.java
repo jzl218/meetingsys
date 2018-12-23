@@ -110,14 +110,14 @@ public class MeetingController {
         Long starttime=meetingDto.getStarttime();
         Long endtime=meetingDto.getEndtime();
         List<Meeting> meetings=meetingRepository.findByStateLessThanEqual(3);
-        List<Meeting> meetingslist=null;
+        final int[] flag = {0};
         meetings.stream().forEach(meeting -> {
             Long nstarttime=meeting.getStarttime()-20*60*1000;
             Long nendttime=meeting.getEndtime()+20*60*1000;
             if ((starttime<nendttime&&starttime>nstarttime)||(endtime>nstarttime&&endtime<nendttime))
-                meetingslist.add(meeting);
+                flag[0] = flag[0] +1;
         });
-        if (meetingslist.size()==0){
+        if (flag[0]==0){
             Meeting meeting=new Meeting();
             BeanUtils.copyProperties(meetingDto,meeting);
             meeting.setInvitecode(UUID.randomUUID().toString());
