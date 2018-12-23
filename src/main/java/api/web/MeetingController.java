@@ -105,7 +105,7 @@ public class MeetingController {
         Long starttime=meetingDto.getStarttime();
         Long endtime=meetingDto.getEndtime();
         List<Meeting> meetings=meetingRepository.findByStateLessThanEqual(3);
-        List<Meeting> meetingslist=new LinkedList<>();
+        List<Meeting> meetingslist=null;
         meetings.stream().forEach(meeting -> {
             Long nstarttime=meeting.getStarttime()-20*60*1000;
             Long nendttime=meeting.getEndtime()+20*60*1000;
@@ -262,7 +262,7 @@ public class MeetingController {
     }
 
 
-    @GetMapping("/update")//TODO
+    @PostMapping("/update")//TODO
     public Result updateMeeting(Meeting meeting,HttpServletRequest session){
         if (session.getSession().getAttribute("admin")==null){
             return ResultUtil.Error("请先登录");
