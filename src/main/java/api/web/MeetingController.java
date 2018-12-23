@@ -272,7 +272,7 @@ public class MeetingController {
         Meeting meeting1=meetingRepository.findById(meeting.getId()).get();
         BeanUtils.copyProperties(meeting,meeting1);
         if (meetingRepository.save(meeting1)!=null)
-            return ResultUtil.Success();
+            return ResultUtil.Success(meeting1);
         else return ResultUtil.Error("更新失败");
 
     }
