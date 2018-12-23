@@ -41,9 +41,10 @@ public class MeetingController {
             return ResultUtil.Error("请先登录");
         }
         List<Meeting> allmeetings=meetingRepository.findAllByOrderByStarttime();
-        List<Meeting> meetings=allmeetings.stream().filter(meeting -> {
+        List<Meeting> meetings1=allmeetings.stream().filter(meeting -> {
             return meeting.getState()==0;
-        }).map(meeting -> {
+        }).collect(Collectors.toList());
+        List<Meeting> meetings=meetings1.stream().map(meeting -> {
             meeting.setOriginator(accountRepository.findById(meeting.getOriginator()).getName());
             return meeting;
         }).collect(Collectors.toList());
@@ -58,9 +59,10 @@ public class MeetingController {
             return ResultUtil.Error("请先登录");
         }
         List<Meeting> allmeetings=meetingRepository.findAllByOrderByStarttime();
-        List<Meeting> meetings=allmeetings.stream().filter(meeting -> {
+        List<Meeting> meetings1=allmeetings.stream().filter(meeting -> {
             return meeting.getState()!=0;
-        }).map(meeting -> {
+        }).collect(Collectors.toList());
+        List<Meeting> meetings=meetings1.stream().map(meeting -> {
             meeting.setOriginator(accountRepository.findById(meeting.getOriginator()).getName());
             return meeting;
         }).collect(Collectors.toList());
