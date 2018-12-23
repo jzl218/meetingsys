@@ -263,11 +263,11 @@ public class MeetingController {
 
 
     @PostMapping("/update")//TODO
-    public Result updateMeeting(Meeting meeting,HttpServletRequest session){
-        if (session.getSession().getAttribute("admin")==null){
-            return ResultUtil.Error("请先登录");
-        }
-        if (meetingRepository.findById(meeting.getId())==null)
+    public Result updateMeeting(@RequestBody Meeting meeting,HttpServletRequest session){
+//        if (session.getSession().getAttribute("admin")==null){
+//            return ResultUtil.Error("请先登录");
+//        }
+        if (meetingRepository.findById(meeting.getId()).get()==null)
             return ResultUtil.Error("找不到会议");
         Meeting meeting1=meetingRepository.findById(meeting.getId()).get();
         BeanUtils.copyProperties(meeting,meeting1);
