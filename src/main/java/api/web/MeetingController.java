@@ -62,7 +62,7 @@ public class MeetingController {
         }
         List<Meeting> allmeetings=meetingRepository.findAllByOrderByStarttime();
         List<Meeting> meetings1=allmeetings.stream().filter(meeting -> {
-            return meeting.getState()==1;
+            return meeting.getState()==1||meeting.getState()==2;
         }).collect(Collectors.toList());
         List<MeetingVO> meetings=meetings1.stream().map(meeting -> {
             MeetingVO meetingVO=new MeetingVO();
