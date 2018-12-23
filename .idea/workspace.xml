@@ -1,98 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e4739da-1815-49e4-a549-45710c4173a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.asf_install.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/freesdk_131232.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/arcsoft-sdk-face-2.0.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pictest/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pictest/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pictest/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pictest/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pictest/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pictest/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/api/Dto/ImgDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/api/Entity/Device.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/api/base/ImageInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/api/factory/FaceEngineFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/api/sevice/FaceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/api/vo/RateVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/api/web/FaceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/Dto/ImgDto.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/Account.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/ConsumerGroupMapPK1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/Device.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/Manager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/Meeting.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/Room.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/base/ImageInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/factory/FaceEngineFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/sevice/FaceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/vo/RateVO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/api/web/FaceController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT/BOOT-INF/lib/meetingsys-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT/WEB-INF/lib/meetingsys-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/Dto/AccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Dto/AccountDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/Dto/BoundDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Dto/BoundDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/Dto/MeetingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Dto/MeetingDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/MeetingApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/MeetingApiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/constant/AuthApis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/constant/AuthApis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/ConsumerGroupMapPK1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/ConsumerGroupMapPK1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/Device.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/Meeting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/MeetingAcoount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/MeetingAcoount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/AccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/DeviceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/ManagerRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/ManagerRespository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/MeetingAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/MeetingAccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/MeetingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/MeetingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/RoomRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/sevice/AccountProviderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/sevice/AccountProviderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/utils/PicUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/utils/PicUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/vo/MeetingVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/vo/MeetingVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/web/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/web/DeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/web/DeviceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/web/MeetingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/web/MeetingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/web/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/web/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/Dto/AccountDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/Dto/AccountDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/Dto/BoundDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/Dto/BoundDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/Dto/MeetingDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/Dto/MeetingDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/MeetingApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/MeetingApiApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/constant/AuthApis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/constant/AuthApis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/Account.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/ConsumerGroupMapPK1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/Device.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/Manager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/Meeting.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/MeetingAcoount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/Entity/MeetingAcoount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/Room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/AccountRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/AccountRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/DeviceRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/DeviceRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/ManagerRespository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/ManagerRespository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/MeetingAccountRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/MeetingAccountRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/MeetingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/MeetingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/RoomRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/RoomRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/sevice/AccountProviderImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/sevice/AccountProviderImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/utils/PicUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/utils/PicUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/vo/MeetingVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/vo/MeetingVO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/web/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/web/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/web/DeviceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/web/DeviceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/web/MeetingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/web/MeetingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/web/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/web/RoomController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT.jar.original" afterDir="false" />
-    </list>
+    <list default="true" id="6e4739da-1815-49e4-a549-45710c4173a3" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -401,7 +310,7 @@
             <path>
               <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
               <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
@@ -428,7 +337,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545547406989" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545548105599" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -525,12 +434,12 @@
       <workItem from="1545476975207" duration="3173000" />
       <workItem from="1545542678486" duration="969000" />
       <workItem from="1545543671533" duration="443000" />
-      <workItem from="1545544136461" duration="3295000" />
+      <workItem from="1545544136461" duration="3843000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116192000" />
+    <option name="totallyTimeSpent" value="116740000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -543,7 +452,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17487548" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
