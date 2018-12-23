@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -94,27 +95,30 @@ public class MeetingController {
     public Result addMeeting(@RequestBody MeetingDto meetingDto){
         Long starttime=meetingDto.getStarttime();
         Long endtime=meetingDto.getEndtime();
-        List<Meeting> meetings=meetingRepository.findAll();
-        List<Meeting> meetingslist=meetings.stream().map(meeting -> {
+        List<Meeting> meetings=meetingRepository.findByStateLessThanEqual(3);
+        List<Meeting> meetingslist=new LinkedList<>();
+        meetings.stream().forEach(meeting -> {
             Long nstarttime=meeting.getStarttime()-20*60*1000;
             Long nendttime=meeting.getEndtime()+20*60*1000;
             if ((starttime<nendttime&&starttime>nstarttime)||(endtime>nstarttime&&endtime<nendttime))
-                return meeting;
-            else return null;
-        }).collect(Collectors.toList());
-        if (meetingslist.size()!=0){
+                meetingslist.add(meeting);
+        });
+        if (meetingslist.size()==0){
             Meeting meeting=new Meeting();
             BeanUtils.copyProperties(meetingDto,meeting);
             meeting.setInvitecode(UUID.randomUUID().toString());
             meeting.setState(0);
             meeting.setOriginator(accountProvider.getNowAccout().getId());
             meeting.setIsentered(0);
+            meeting.setStarttime(meetingDto.getStarttime());
+            meeting.setEndtime(meetingDto.getEndtime());
+            meeting.setTheme(meetingDto.getTheme());
             MeetingAcoount meetingAcoount=new MeetingAcoount();
             meetingAcoount.setAccount(meeting.getOriginator());
             meetingAcoount.setSigntime(0);
 
             meetingRepository.save(meeting);
-            int id=meetingRepository.findByOriginator(meeting.getOriginator()).getId();
+            int id=meetingRepository.findByOriginatorAndStarttime(meeting.getOriginator(),meetingDto.getStarttime()).getId();
             meetingAcoount.setMeeting(id);
             meetingAcoount.setMeeting(meeting.getId());
             meetingAccountRepository.save(meetingAcoount);

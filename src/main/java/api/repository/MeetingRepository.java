@@ -24,7 +24,7 @@ public interface MeetingRepository extends JpaRepository<Meeting,Integer> {
 
     Meeting findByInvitecode(String invitecode);
 
-    Meeting findByOriginator(String id);
+    Meeting findByOriginatorAndStarttime(String id,long starttime);
 
     Meeting findByIdAndOriginator(int id,String originator);
 
