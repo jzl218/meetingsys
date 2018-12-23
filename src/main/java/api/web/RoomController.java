@@ -132,6 +132,9 @@ public class RoomController {
         Long starttime=meetingDto.getStarttime();
         Long endtime=meetingDto.getEndtime();
         List<Meeting> meetings = meetingRepository.findByStateLessThanEqual(3);
+        if (meetings.size()==0){
+            return ResultUtil.Success(roomRepository.findRoomsBySizeGreaterThanEqual(meetingDto.getSize()));
+        }
         List<String> list =new LinkedList<>();
         meetings.stream().forEach(meeting -> {
             Long nstarttime = meeting.getStarttime() - 20 * 60 * 1000;
