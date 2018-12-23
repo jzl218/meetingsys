@@ -43,6 +43,9 @@ public class MeetingController {
         List<Meeting> allmeetings=meetingRepository.findAllByOrderByStarttime();
         List<Meeting> meetings=allmeetings.stream().filter(meeting -> {
             return meeting.getState()==0;
+        }).map(meeting -> {
+            meeting.setOriginator(accountRepository.findById(meeting.getOriginator()).getName());
+            return meeting;
         }).collect(Collectors.toList());
         if (meetings!=null)
             return ResultUtil.Success(meetings);
@@ -57,6 +60,9 @@ public class MeetingController {
         List<Meeting> allmeetings=meetingRepository.findAllByOrderByStarttime();
         List<Meeting> meetings=allmeetings.stream().filter(meeting -> {
             return meeting.getState()!=0;
+        }).map(meeting -> {
+            meeting.setOriginator(accountRepository.findById(meeting.getOriginator()).getName());
+            return meeting;
         }).collect(Collectors.toList());
         if (meetings!=null)
             return ResultUtil.Success(meetings);
@@ -71,6 +77,7 @@ public class MeetingController {
         }
         Meeting meetingvo=meetingRepository.findById(meeting);
         meetingvo.setState(1);
+        meetingvo.setOriginator(accountRepository.findById(meetingvo.getOriginator()).getName());
         meetingRepository.save(meetingvo);
         return ResultUtil.Success();
     }
