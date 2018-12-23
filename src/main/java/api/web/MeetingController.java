@@ -44,9 +44,11 @@ public class MeetingController {
         List<Meeting> meetings1=allmeetings.stream().filter(meeting -> {
             return meeting.getState()==0;
         }).collect(Collectors.toList());
-        List<Meeting> meetings=meetings1.stream().map(meeting -> {
-            meeting.setOriginator(accountRepository.findById(meeting.getOriginator()).getName());
-            return meeting;
+        List<MeetingVO> meetings=meetings1.stream().map(meeting -> {
+            MeetingVO meetingVO=new MeetingVO();
+            BeanUtils.copyProperties(meeting,meetingVO);
+            meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
+            return meetingVO;
         }).collect(Collectors.toList());
         if (meetings!=null)
             return ResultUtil.Success(meetings);
@@ -62,9 +64,11 @@ public class MeetingController {
         List<Meeting> meetings1=allmeetings.stream().filter(meeting -> {
             return meeting.getState()!=0;
         }).collect(Collectors.toList());
-        List<Meeting> meetings=meetings1.stream().map(meeting -> {
-            meeting.setOriginator(accountRepository.findById(meeting.getOriginator()).getName());
-            return meeting;
+        List<MeetingVO> meetings=meetings1.stream().map(meeting -> {
+            MeetingVO meetingVO=new MeetingVO();
+            BeanUtils.copyProperties(meeting,meetingVO);
+            meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
+            return meetingVO;
         }).collect(Collectors.toList());
         if (meetings!=null)
             return ResultUtil.Success(meetings);
@@ -79,8 +83,9 @@ public class MeetingController {
         }
         Meeting meetingvo=meetingRepository.findById(meeting);
         meetingvo.setState(1);
-        meetingvo.setOriginator(accountRepository.findById(meetingvo.getOriginator()).getName());
-        meetingRepository.save(meetingvo);
+        MeetingVO meetingVO=new MeetingVO();
+        BeanUtils.copyProperties(meeting,meetingVO);
+        meetingVO.setOriginatorName(accountRepository.findById(meetingvo.getOriginator()).getName());
         return ResultUtil.Success();
     }
 
@@ -274,6 +279,24 @@ public class MeetingController {
         if (meetingRepository.save(meeting1)!=null)
             return ResultUtil.Success(meeting1);
         else return ResultUtil.Error("更新失败");
+
+    }
+
+
+    @GetMapping("/getall")
+    public Result getAll(HttpServletRequest session){
+        if (session.getSession().getAttribute("admin")==null){
+            return ResultUtil.Error("请先登录");
+        }
+        List<Meeting> meetings=meetingRepository.findAll();
+        List<MeetingVO> meetingVOS=meetings.stream().map(meeting -> {
+            MeetingVO meetingVO=new MeetingVO();
+            BeanUtils.copyProperties(meeting,meetingVO);
+            meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
+            return meetingVO;
+        }).collect(Collectors.toList());
+       return ResultUtil.Success(meetingVOS);
+
 
     }
 
