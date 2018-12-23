@@ -1,23 +1,21 @@
 package api.web;
 
 import api.Dto.BoundDto;
-import api.Dto.RoomDto;
 import api.Dto.TimeDto;
-import api.entity.Meeting;
-import api.entity.Room;
+import api.Entity.Meeting;
+import api.Entity.Room;
 import api.repository.MeetingRepository;
 import api.repository.RoomRepository;
 import api.utils.BeanUtils;
 import api.utils.ResultUtil;
 import api.vo.Result;
+import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/room")
@@ -42,7 +40,7 @@ public class RoomController {
 
 
     @GetMapping("/delete")
-    public Result deleteRoom(int room,HttpServletRequest session){
+    public Result deleteRoom(String room,HttpServletRequest session){
         if (session.getSession().getAttribute("admin")==null){
             return ResultUtil.Error("请先登录");
         }
@@ -56,7 +54,7 @@ public class RoomController {
         if (session.getSession().getAttribute("admin")==null){
             return ResultUtil.Error("请先登录");
         }
-        int room=updateRoom.getId();
+        String room=updateRoom.getId();
         Room uproom=roomRepository.findById(room);
         BeanUtils.copyProperties(updateRoom,uproom);
         Room roomvo=roomRepository.save(uproom);
@@ -75,8 +73,8 @@ public class RoomController {
         return ResultUtil.Success(rooms);
     }
 
-        @GetMapping("/aselectbyid")
-    public Result aselectRoomById(int room,HttpServletRequest session){
+    @GetMapping("/aselectbyid")
+    public Result aselectRoomById(String room,HttpServletRequest session){
         if (session.getSession().getAttribute("admin")==null){
             return ResultUtil.Error("请先登录");
         }
@@ -93,13 +91,13 @@ public class RoomController {
 
 
     @GetMapping("/uselectbyid")//TODO
-    public Result uselectRoomById(int room){
+    public Result uselectRoomById(String room){
         return selectRoomById(room);
     }
 
     @GetMapping("/uselectbysize")//TODO
     public Result uslelectRoomBySize(int size){
-        return selectRoomBySize(size);
+       return selectRoomBySize(size);
     }
 
     @GetMapping("/selectAll")//TODO
@@ -112,23 +110,38 @@ public class RoomController {
     public Result  selectRoomByMeetingTime(@RequestBody TimeDto timeDto) {
         Long starttime = timeDto.getStarttime();
         Long endtime = timeDto.getEndtime();
-        ArrayList list = new ArrayList();
+        List<String> list =new LinkedList<>();
         List<Meeting> meetings = meetingRepository.findByStateLessThanEqual(3);
-        meetings.stream().forEach(meeting -> {
+            meetings.stream().forEach(meeting -> {
             Long nstarttime = meeting.getStarttime() - 20 * 60 * 1000;
             Long nendttime = meeting.getEndtime() + 20 * 60 * 1000;
             if ((starttime < nendttime && starttime > nstarttime) || (endtime > nstarttime && endtime < nendttime))
-                list.add(meeting.getId());
+                list.add(meeting.getRoom());
         });
         List<Room> rooms=roomRepository.findByIdNotInOrderById(list);
         return ResultUtil.Success(rooms);
     }
 
 
+    
+    @PostMapping("/selectbyall")
+    public Result selectByAll(@RequestBody Meeting meetingDto){
+        Long starttime=meetingDto.getStarttime();
+        Long endtime=meetingDto.getEndtime();
+        List<Meeting> meetings = meetingRepository.findByStateLessThanEqual(3);
+        List<String> list =new LinkedList<>();
+        meetings.stream().forEach(meeting -> {
+            Long nstarttime = meeting.getStarttime() - 20 * 60 * 1000;
+            Long nendttime = meeting.getEndtime() + 20 * 60 * 1000;
+            if ((starttime < nendttime && starttime > nstarttime) || (endtime > nstarttime && endtime < nendttime))
+                if (meeting.getSize()>meetingDto.getSize())
+                list.add(meeting.getRoom());
+        });
+        List<Room> rooms=roomRepository.findByIdNotInOrderById(list);
+        return ResultUtil.Success(rooms);
+    }
 
-
-
-    public Result selectRoomById(int room){
+    public Result selectRoomById(String room){
         Room finroom=roomRepository.findById(room);
         if (finroom!=null){
             return ResultUtil.Success(finroom);
@@ -139,9 +152,9 @@ public class RoomController {
 
     public Result selectRoomBySize(int size){
         List<Room> rooms=roomRepository.findRoomsBySizeGreaterThanEqual(size);
-        if (rooms!=null)
+        if (rooms.size()!=0)
             return ResultUtil.Success(rooms);
-        else return ResultUtil.Error("找不到会议室");
+        else return ResultUtil.Error("没有满足条件的会议室");
     }
 
     @PostMapping("/boundroom")
@@ -158,6 +171,11 @@ public class RoomController {
         else return ResultUtil.Error("失败");
 
     }
+
+
+
+
+
 
 
 

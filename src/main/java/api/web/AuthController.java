@@ -4,38 +4,48 @@ import api.Dto.AccountDto;
 import api.Dto.AdminLoginDto;
 import api.Dto.PassDto;
 import api.Dto.UserDto;
-import api.entity.Account;
-import api.entity.Manager;
+import api.base.ImageInfo;
+import api.Entity.Account;
+import api.Entity.Manager;
 import api.repository.AccountRepository;
 import api.repository.ManagerRespository;
 import api.sevice.AccountProviderImpl;
+import api.sevice.FaceImpl;
 import api.utils.BeanUtils;
 import api.utils.PicUtil;
 import api.utils.ResultUtil;
-import api.vo.ManagerVO;
 import api.vo.Result;
+import com.arcsoft.face.FaceEngine;
+import com.arcsoft.face.FaceFeature;
+import com.arcsoft.face.FaceInfo;
+import com.arcsoft.face.enums.ImageFormat;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.jsets.shiro.util.CryptoUtil;
 import org.jsets.shiro.util.ShiroUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
+    public String addId="6NicX292WuD2npxeHZPaCQSVbfuN6DionSMfu2XRdwep";
+    public String sdkKet="HMXxTNqu3rnhbhGZB3wNURFCLVb4tiriTMXpxnytMKHM";
     @Autowired
     private ManagerRespository managerRespository;
     @Autowired
     private AccountRepository accountRepository;
     @Autowired
     private AccountProviderImpl accountProvider;
+    @Autowired
+    private FaceImpl face;
 
 
 
@@ -53,6 +63,7 @@ public class AuthController {
         else {
             Manager manager = managerRespository.findByAccountAndPassword(account, password);
             session.getSession().setAttribute("admin", "manager");
+
             return ResultUtil.Success(manager.getAccount());
 
         }
@@ -74,7 +85,16 @@ public class AuthController {
         }
         Account account=new Account();
         BeanUtils.copyProperties(accountDto,account);
-        account.setFaceurl(PicUtil.decode64(accountDto.getFace()));
+        File file= PicUtil.decode64(accountDto.getFace());
+        ImageInfo imageInfo=face.getRGBData(file);
+        FaceEngine faceEngine=new FaceEngine();
+        faceEngine.active(addId,sdkKet);
+        faceEngine.init(face.getengineConfig());
+        List<FaceInfo> faceInfoList = new ArrayList<FaceInfo>();
+        faceEngine.detectFaces(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList);
+        FaceFeature faceFeature = new FaceFeature();
+        faceEngine.extractFaceFeature(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList.get(0), faceFeature);
+        account.setFace(faceFeature.getFeatureData());
         if (accountRepository.save(account)!=null){
             return ResultUtil.Success();
         }
@@ -98,7 +118,7 @@ public class AuthController {
         );
         Map map=new HashMap();
         map.put("id",userDto.getId());
-        map.put("name",accountRepository.findByIdAndPassword(userDto.getId(),userDto.getPassword()).getAccount());
+        map.put("name",accountRepository.findByIdAndPassword(userDto.getId(),userDto.getPassword()).getName());
         map.put("jwt",jwt);
         return ResultUtil.Success(map);
     }
@@ -139,6 +159,15 @@ public class AuthController {
         return ResultUtil.Success(accountRepository.findAll());
     }
 
+    @GetMapping("/deletebyid")
+    public Result deleteById(String id,HttpServletRequest request){
+        if (request.getSession().getAttribute("admin") == null) {
+            return ResultUtil.Error("请先登录");
+        }
+        accountRepository.deleteAccountById(id);
+        return ResultUtil.Success();
 
+    }
 
 }
+

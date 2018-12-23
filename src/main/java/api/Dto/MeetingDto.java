@@ -15,9 +15,7 @@ public class MeetingDto {
     private long endtime;
 
 
-    private int room;
-
-
+    private String room;
 
 
     private int issigned;
@@ -25,5 +23,5 @@ public class MeetingDto {
 
     private int isentered;
 
-
+    private int size;
 }

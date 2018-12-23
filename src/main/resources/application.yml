@@ -27,6 +27,7 @@ spring:
 server: 
   servlet: 
     path: /api
+
 jsets:
   shiro:
     jwt-enabled: true

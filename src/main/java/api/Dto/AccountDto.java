@@ -10,6 +10,7 @@ public class AccountDto {
 
     private  String id;
 
+
     private String password;
 
 
@@ -17,4 +18,10 @@ public class AccountDto {
 
 
     private String face;
+
+
+    private String phonenum;
+
+
+    private String email;
 }

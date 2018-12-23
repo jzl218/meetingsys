@@ -16,16 +16,22 @@ public class MeetingVO {
     private long endtime;
 
 
-    private int room;
+    private String room;
 
 
-    private int originator;
+    private String originator;
+
+
+    private String originatorName;
 
 
     private int issigned;
 
 
     private int state;
+
+
+    private int size;
 
 
 }

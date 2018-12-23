@@ -1,9 +1,15 @@
 package api.utils;
 
+import api.base.ImageInfo;
 import org.apache.commons.io.FileUtils;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
+import javax.imageio.ImageIO;
+import java.awt.color.ColorSpace;
+import java.awt.image.BufferedImage;
+import java.awt.image.ColorConvertOp;
+import java.awt.image.DataBufferByte;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -28,7 +34,7 @@ public class PicUtil {
         return "data:image/"+last+";base64,"+encode;
     }
 
-    public static String decode64(String pic) throws IOException {
+    public static File decode64(String pic) throws IOException {
         String path="pic/";
         String filename= UUID.randomUUID().toString();
         if (pic==null||pic.equals(""))
@@ -39,6 +45,8 @@ public class PicUtil {
         OutputStream os=FileUtils.openOutputStream(file);
         os.write(data);
         os.close();
-        return path+filename;
+        return file;
     }
+
+
 }

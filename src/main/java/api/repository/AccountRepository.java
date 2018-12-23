@@ -1,9 +1,11 @@
 package api.repository;
 
-import api.entity.Account;
-import api.sevice.AccountProviderImpl;
+import api.Entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account,Integer> {
@@ -15,5 +17,8 @@ public interface AccountRepository extends JpaRepository<Account,Integer> {
 
     Account findById(String id);
 
+    List<Account> findByIdIn(List<String> ids);
+    @Transactional
+    void  deleteAccountById(String id);
 
 }

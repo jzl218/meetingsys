@@ -2,20 +2,94 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e4739da-1815-49e4-a549-45710c4173a3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.asf_install.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/freesdk_131232.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/arcsoft-sdk-face-2.0.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pictest/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pictest/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pictest/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pictest/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pictest/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pictest/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/api/Dto/ImgDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/api/Entity/Device.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/api/base/ImageInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/api/factory/FaceEngineFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/api/sevice/FaceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/api/vo/RateVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/api/web/FaceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/Dto/ImgDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/Account.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/ConsumerGroupMapPK1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/Device.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/Manager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/Meeting.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/Entity/Room.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/base/ImageInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/factory/FaceEngineFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/sevice/FaceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/vo/RateVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/api/web/FaceController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT/BOOT-INF/lib/meetingsys-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT/WEB-INF/lib/meetingsys-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/Dto/PassDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Dto/PassDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/Dto/AccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Dto/AccountDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/Dto/BoundDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Dto/BoundDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/Dto/MeetingDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Dto/MeetingDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/MeetingApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/MeetingApiApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/api/constant/AuthApis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/constant/AuthApis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/ConsumerGroupMapPK1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/entity/ConsumerGroupMapPK1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/ConsumerGroupMapPK1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/ConsumerGroupMapPK1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/Device.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/Meeting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/MeetingAcoount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/MeetingAcoount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Entity/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/DeviceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/DeviceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/ManagerRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/ManagerRespository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/MeetingAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/MeetingAccountRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/MeetingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/MeetingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/repository/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/repository/RoomRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/api/sevice/AccountProviderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/sevice/AccountProviderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/utils/PicUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/utils/PicUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/vo/MeetingVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/vo/MeetingVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/api/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/web/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/web/DeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/web/DeviceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/api/web/MeetingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/web/MeetingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/Dto/PassDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/Dto/PassDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/api/web/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/web/RoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/Dto/AccountDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/Dto/AccountDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/Dto/BoundDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/Dto/BoundDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/Dto/MeetingDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/Dto/MeetingDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/MeetingApiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/MeetingApiApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/api/constant/AuthApis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/constant/AuthApis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/ConsumerGroupMapPK1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/entity/ConsumerGroupMapPK1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/Account.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/ConsumerGroupMapPK1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/Device.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/Meeting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/MeetingAcoount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/Entity/MeetingAcoount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/entity/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/AccountRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/AccountRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/DeviceRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/DeviceRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/ManagerRespository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/ManagerRespository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/MeetingAccountRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/MeetingAccountRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/MeetingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/MeetingRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/repository/RoomRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/repository/RoomRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/api/sevice/AccountProviderImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/sevice/AccountProviderImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/utils/PicUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/utils/PicUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/vo/MeetingVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/vo/MeetingVO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/api/web/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/web/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/web/DeviceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/web/DeviceController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/api/web/MeetingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/web/MeetingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/api/web/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/api/web/RoomController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/meetingsys-1.0-SNAPSHOT.jar.original" afterDir="false" />
     </list>
@@ -45,53 +119,62 @@
     <session id="703257957">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.40" value="1" />
+          <entry key="project.open.time.40" value="2" />
           <entry key="project.open.time.41" value="1" />
-          <entry key="project.open.time.44" value="2" />
+          <entry key="project.open.time.42" value="1" />
+          <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.44" value="4" />
           <entry key="project.open.time.46" value="2" />
+          <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="7" />
+          <entry key="class" value="14" />
+          <entry key="gitignore" value="1" />
           <entry key="iml" value="2" />
-          <entry key="java" value="244" />
-          <entry key="xml" value="5" />
-          <entry key="yml" value="5" />
+          <entry key="java" value="473" />
+          <entry key="xml" value="7" />
+          <entry key="yml" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="7" />
+          <entry key="CLASS" value="14" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="244" />
-          <entry key="XML" value="5" />
-          <entry key="YAML" value="5" />
+          <entry key="JAVA" value="473" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="XML" value="7" />
+          <entry key="YAML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="java" value="11537" />
-          <entry key="xml" value="3" />
-          <entry key="yml" value="26" />
+          <entry key="gitignore" value="21" />
+          <entry key="java" value="16282" />
+          <entry key="xml" value="210" />
+          <entry key="yml" value="123" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="11537" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="XML" value="3" />
-          <entry key="YAML" value="26" />
+          <entry key="JAVA" value="16282" />
+          <entry key="PLAIN_TEXT" value="22" />
+          <entry key="XML" value="210" />
+          <entry key="YAML" value="123" />
         </counts>
       </usages-collector>
     </session>
@@ -99,28 +182,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/api/sevice/AccountProviderImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/api/web/FaceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/api/web/MeetingController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="109" selection-start-line="109" selection-end-line="109" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/api/web/AuthController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="111" column="48" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
+            <state relative-caret-position="-2030">
+              <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,64 +194,95 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/api/web/RoomController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-192">
-              <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/api/entity/Account.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/api/sevice/ApplicationSecurityConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="48" column="70" lean-forward="true" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/PassDto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            <state relative-caret-position="-1344">
+              <caret line="99" column="36" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3181#3182#0" expanded="true" />
+                <element signature="e#3220#3221#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/api/constant/AuthApis.java">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="25" column="58" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="58" />
+            <state relative-caret-position="72">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/TimeDto.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/MeetingRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+            <state relative-caret-position="264">
+              <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/api/constant/AuthApis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/api/sevice/AccountProviderImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1066#1067#0" expanded="true" />
+                <element signature="e#1093#1094#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/AccountRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/api/web/MeetingController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1040">
+              <caret line="120" column="30" lean-forward="true" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/api/vo/AccountVO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/api/vo/RateVO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -207,56 +303,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/yzeduapi/entity/meeting.java" />
-        <option value="$PROJECT_DIR$/src/main/java/yzeduapi/entity/Room.java" />
-        <option value="$PROJECT_DIR$/src/main/java/yzeduapi/entity/Meeting.java" />
-        <option value="$PROJECT_DIR$/src/main/java/yzeduapi/entity/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/yzeduapi/entity/Manager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/yzeduapi/entity/Device.java" />
-        <option value="$PROJECT_DIR$/src/main/java/yzeduapi/entity/MeetingAcoount.java" />
-        <option value="$PROJECT_DIR$/src/main/java/yzeduapi/entity/ConsumerGroupMapPK1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/entity/Device.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/vo/Result.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/utils/ResultUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/vo/ManageVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/sevice/FilteRulesProviderImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/Dto/AdminLoginDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/Dto/RoomDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/entity/Room.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/entity/Manager.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/repository/DeviceRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/vo/AccountVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/web/AccountController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/Dto/AccountDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/Dto/JoinDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/vo/MeetingVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/vo/ManagerVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/repository/ManagerRespository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/MeetingApiApplication.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/api/Dto/TImeDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/Dto/TimeDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/repository/RoomRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/entity/Account.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/Dto/UserDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/repository/MeetingAccountRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/entity/MeetingAcoount.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/Dto/MeetingDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/entity/Meeting.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/web/DeviceController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/Dto/BoundDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/web/RoomController.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/sevice/MeetingServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/repository/AccountRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/Dto/OrderDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/sevice/AccountProviderImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/entity/ConsumerGroupMapPK1.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/Dto/PassDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/entity/Room.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/Dto/BoundDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/vo/AccountVO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/utils/ImageUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/base/ImageInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/factory/FaceEngineFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/sevice/FaceEnginServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/utils/PicUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/entity/FaceInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/Dto/ImgDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/repository/MeetingAccountRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/repository/AccountRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/vo/RateVO.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/api/sevice/AccountProviderImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/web/AuthController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/sevice/FaceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/entity/MeetingAcoount.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/api/web/FaceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/MeetingApiApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/entity/ConsumerGroupMapPK1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/entity/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/Dto/AccountDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/entity/Device.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/entity/Meeting.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/Dto/MeetingDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/vo/MeetingVO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/entity/Manager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/repository/RoomRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/api/constant/AuthApis.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/repository/MeetingRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/web/MeetingController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/constant/AuthApis.java" />
-        <option value="$PROJECT_DIR$/src/main/java/api/web/AuthController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/api/web/RoomController.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -278,18 +375,13 @@
           <item name="meetingsys" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="meetingsys" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
       </expand>
       <select />
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="261" />
-    <option name="y" value="569" />
+    <option name="x" value="692" />
+    <option name="y" value="160" />
     <option name="width" value="1370" />
     <option name="height" value="883" />
   </component>
@@ -299,109 +391,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
               <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="constant" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="Dto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="sevice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meetingsys" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
@@ -415,12 +410,13 @@
             <path>
               <item name="meetingsys" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: ch.qos.logback:logback-classic:1.2.3" type="70bed36:NamedLibraryElementNode" />
+              <item name="Maven: antlr:antlr:2.7.7" type="70bed36:NamedLibraryElementNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
@@ -432,17 +428,25 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544783005049" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545547406989" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="api.utils" />
       <recent name="yzeduapi.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/api/web/testpic" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/java/api/sevice" />
     </key>
   </component>
@@ -511,14 +515,24 @@
       <workItem from="1544522970064" duration="2134000" />
       <workItem from="1544675372954" duration="7901000" />
       <workItem from="1544735469402" duration="1479000" />
-      <workItem from="1544778407130" duration="4007000" />
+      <workItem from="1544778407130" duration="7329000" />
+      <workItem from="1544843905818" duration="1573000" />
+      <workItem from="1544896106790" duration="5055000" />
+      <workItem from="1544932585025" duration="746000" />
+      <workItem from="1545023977599" duration="22768000" />
+      <workItem from="1545101493476" duration="14187000" />
+      <workItem from="1545414884628" duration="5441000" />
+      <workItem from="1545476975207" duration="3173000" />
+      <workItem from="1545542678486" duration="969000" />
+      <workItem from="1545543671533" duration="443000" />
+      <workItem from="1545544136461" duration="3295000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55220000" />
+    <option name="totallyTimeSpent" value="116192000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -529,8 +543,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3065855" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17487548" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -540,17 +555,17 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32777777" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997233" weight="0.32777777" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.60486996" weight="0.3511111" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49474266" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3292683" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Spring" order="8" weight="0.32815966" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4975097" weight="0.3288889" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4997233" />
+      <window_info anchor="bottom" id="Spring" order="8" sideWeight="0.4991699" weight="0.32777777" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5002767" side_tool="true" weight="0.32815966" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.2660754" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.48976204" visible="true" weight="0.32555556" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.39513004" side_tool="true" weight="0.3511111" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49197567" weight="0.26555556" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.3292683" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24958494" />
@@ -560,8 +575,8 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Database" order="7" weight="0.32982844" />
-      <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.099612616" />
-      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.23021583" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32982844" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,357 +585,570 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/FaceController.java</url>
+          <line>124</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/FaceController.java</url>
+          <line>125</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/FaceController.java</url>
+          <line>127</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/FaceController.java</url>
+          <line>126</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/FaceController.java</url>
+          <line>128</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/FaceController.java</url>
+          <line>123</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/FaceController.java</url>
+          <line>134</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/FaceController.java</url>
+          <line>133</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/FaceController.java</url>
+          <line>132</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/RoomController.java</url>
+          <line>116</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/RoomController.java</url>
+          <line>117</line>
+          <properties />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/RoomController.java</url>
+          <line>118</line>
+          <properties />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/RoomController.java</url>
+          <line>119</line>
+          <properties />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/RoomController.java</url>
+          <line>121</line>
+          <properties />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/api/web/RoomController.java</url>
+          <line>120</line>
+          <properties />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/utils/YzeduUtils.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/web/AccountController.java" />
-    <entry file="jar:///opt/java/jdk1.8.0_181/src.zip!/java/util/function/Function.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.4.0/shiro-core-1.4.0-sources.jar!/org/apache/shiro/util/ThreadContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+        <state relative-caret-position="194">
+          <caret line="335" selection-start-line="335" selection-end-line="335" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/vo/Result.java">
+    <entry file="jar:///opt/java/jdk1.8.0_181/src.zip!/java/lang/NumberFormatException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="888">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/utils/ResultUtil.java">
+    <entry file="jar:///opt/java/jdk1.8.0_181/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+        <state relative-caret-position="13104">
+          <caret line="579" selection-start-line="579" selection-end-line="579" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.8.RELEASE/spring-data-commons-2.0.8.RELEASE.jar!/org/springframework/data/util/ProxyUtils.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/utils/BeanUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        <state relative-caret-position="176">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/ManagerRespository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/BoundDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="120">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/2.0.8.RELEASE/spring-data-jpa-2.0.8.RELEASE.jar!/org/springframework/data/jpa/repository/JpaRepository.class">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.8.RELEASE/spring-data-commons-2.0.8.RELEASE.jar!/org/springframework/data/domain/Example.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        <state relative-caret-position="528">
+          <caret line="144" column="48" selection-start-line="144" selection-start-column="48" selection-end-line="144" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/api/utils/CommonUtil.java">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/utils/BeanUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/base/ImageInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/vo/AccountVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/RoomDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/UserDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/vo/MeetingVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/utils/PicUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="34" column="24" lean-forward="true" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/vo/ManagerVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/sevice/FilteRulesProviderImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/MeetingAccountRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/sevice/MeetingServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/BoundDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/MeetingApiApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meetingsys.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/OrderDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/constant/ErrorCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/web/RoomController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1101">
-          <caret line="147" column="10" selection-start-line="147" selection-start-column="10" selection-end-line="147" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/entity/Meeting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/entity/Manager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/entity/Device.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/DeviceRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/entity/ConsumerGroupMapPK1.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Entity/MeetingAcoount.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/entity/MeetingAcoount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/entity/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/DeviceRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/RoomRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/ManagerRespository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/web/DeviceController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Entity/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="336">
+          <caret line="26" selection-start-line="26" selection-end-line="29" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/MeetingAccountRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/vo/ManagerVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Entity/ConsumerGroupMapPK1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/AccountRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/MeetingRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/AccountDto.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Entity/Room.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/AdminLoginDto.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/AccountDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="528">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/JoinDto.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.7.RELEASE/spring-web-5.0.7.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="2472">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/MeetingDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-148">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/PassDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/TimeDto.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/entity/FaceInfo.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Entity/Manager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/entity/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/sevice/ApplicationSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="48" column="70" lean-forward="true" selection-start-line="48" selection-start-column="70" selection-end-line="48" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/sevice/AccountProviderImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/web/AuthController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="111" column="48" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/vo/MeetingVO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-192">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+        <state relative-caret-position="768">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/MeetingApiApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
+        <state relative-caret-position="577">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/web/MeetingController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/web/AuthController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        <state relative-caret-position="144">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/web/DeviceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/sevice/ApplicationSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/sevice/FilteRulesProviderImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/TimeDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/RoomDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/PassDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/UserDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/constant/ErrorCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/OrderDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/RoomRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Entity/Meeting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/ImgDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Entity/Device.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/utils/PicUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/sevice/FaceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="894">
+          <caret line="64" column="42" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/Dto/MeetingDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/vo/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/vo/RateVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/vo/AccountVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/web/FaceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2030">
+          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/api/constant/AuthApis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="25" column="58" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="58" />
+        <state relative-caret-position="414">
+          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/AccountRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/sevice/AccountProviderImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1066#1067#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/repository/MeetingRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/web/MeetingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1040">
+          <caret line="120" column="30" lean-forward="true" selection-start-line="120" selection-start-column="30" selection-end-line="120" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/web/RoomController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1344">
+          <caret line="99" column="36" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3181#3182#0" expanded="true" />
+            <element signature="e#3220#3221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>meetingsys</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -73,6 +73,7 @@
             <artifactId>jsets-shiro-spring-boot-starter</artifactId>
             <version>1.0.2</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
@@ -98,7 +99,11 @@
             <artifactId>mahout-core</artifactId>
             <version>0.9</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.arcsoft.face</groupId>
+            <artifactId>arcsoft-sdk-face</artifactId>
+            <version>2.0.0.0</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.mahout</groupId>
             <artifactId>mahout-examples</artifactId>
@@ -109,7 +114,24 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.arcsoft.face</groupId>
+            <artifactId>arcsoft-sdk-face</artifactId>
+            <version>2.0.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/arcsoft-sdk-face-2.0.0.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+
     </dependencies>
+
+
 
     <build>
         <plugins>
@@ -119,7 +141,11 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <compilerArguments>
+                        <extdirs>${basedir}/lib/</extdirs>
+                    </compilerArguments>
                 </configuration>
+
             </plugin>
 
 
@@ -128,6 +154,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <includeSystemScope>true</includeSystemScope>
                     <fork>true</fork>
                     <executable>true</executable>
                 </configuration>

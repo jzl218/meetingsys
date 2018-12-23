@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class BoundDto {
-    private int room;
+    private String room;
     private int device;
 }

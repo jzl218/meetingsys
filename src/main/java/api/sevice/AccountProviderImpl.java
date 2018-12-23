@@ -1,9 +1,6 @@
 package api.sevice;
 
-import api.entity.Manager;
-
 import api.repository.AccountRepository;
-import api.repository.ManagerRespository;
 import api.utils.JsonUtils;
 import lombok.Getter;
 import org.apache.shiro.authc.AuthenticationException;
@@ -21,7 +18,7 @@ public class AccountProviderImpl implements ShiroAccountProvider {
     @Autowired
     private AccountRepository accountRepository;
 
-    private api.entity.Account nowAccout;
+    private api.Entity.Account nowAccout;
 
     @Override
     public Account loadAccount(String account) throws AuthenticationException {
@@ -33,7 +30,7 @@ public class AccountProviderImpl implements ShiroAccountProvider {
         String jwt= JsonUtils.getAccount(account);
         nowAccout=accountRepository.findById(jwt);
         Set<String> roles=new HashSet<>();
-        roles.add("role");
+        roles.add("base");
         return roles;
     }
 

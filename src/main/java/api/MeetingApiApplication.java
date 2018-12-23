@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 public class MeetingApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(MeetingApiApplication.class, args);
+
     }
 }
 
