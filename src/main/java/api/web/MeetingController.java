@@ -127,17 +127,10 @@ public class MeetingController {
 
     @PostMapping("/add")//TODO
     public Result addMeeting(@RequestBody MeetingDto meetingDto){
-        Long starttime=meetingDto.getStarttime();
-        Long endtime=meetingDto.getEndtime();
-        List<Meeting> meetings=meetingRepository.findByStateLessThanEqual(3);
-        final int[] flag = {0};
-        meetings.stream().forEach(meeting -> {
-            Long nstarttime=meeting.getStarttime()-20*60*1000;
-            Long nendttime=meeting.getEndtime()+20*60*1000;
-            if ((starttime<nendttime&&starttime>nstarttime)||(endtime>nstarttime&&endtime<nendttime))
-                flag[0] = flag[0] +1;
-        });
-        if (flag[0]==0){
+        Long starttime=meetingDto.getStarttime()-20*60*1000;
+        Long endtime=meetingDto.getEndtime()+20*60*1000;
+        List<Meeting> meetings=meetingRepository.findByStateLessThanEqualAndStarttimeBetweenAndEndtimeBetween(3,starttime,endtime,starttime,endtime) ;
+        if (meetings.size()==0){
             Meeting meeting=new Meeting();
             BeanUtils.copyProperties(meetingDto,meeting);
             meeting.setInvitecode(UUID.randomUUID().toString());
