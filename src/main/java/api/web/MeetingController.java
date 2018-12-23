@@ -55,14 +55,14 @@ public class MeetingController {
         else return ResultUtil.Error("失败");
     }
 
-    @GetMapping("/selectverify")
+    @GetMapping("/selectpass")
     public Result selectMeeetingverify(HttpServletRequest session){
         if (session.getSession().getAttribute("admin")==null){
             return ResultUtil.Error("请先登录");
         }
         List<Meeting> allmeetings=meetingRepository.findAllByOrderByStarttime();
         List<Meeting> meetings1=allmeetings.stream().filter(meeting -> {
-            return meeting.getState()==1||meeting.getState()==2;
+            return meeting.getState()==1;
         }).collect(Collectors.toList());
         List<MeetingVO> meetings=meetings1.stream().map(meeting -> {
             MeetingVO meetingVO=new MeetingVO();
@@ -76,6 +76,26 @@ public class MeetingController {
 
     }
 
+    @GetMapping("/selectnopass")
+    public Result selectMeeetingNopass(HttpServletRequest session){
+        if (session.getSession().getAttribute("admin")==null){
+            return ResultUtil.Error("请先登录");
+        }
+        List<Meeting> allmeetings=meetingRepository.findAllByOrderByStarttime();
+        List<Meeting> meetings1=allmeetings.stream().filter(meeting -> {
+            return meeting.getState()==2;
+        }).collect(Collectors.toList());
+        List<MeetingVO> meetings=meetings1.stream().map(meeting -> {
+            MeetingVO meetingVO=new MeetingVO();
+            BeanUtils.copyProperties(meeting,meetingVO);
+            meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
+            return meetingVO;
+        }).collect(Collectors.toList());
+        if (meetings!=null)
+            return ResultUtil.Success(meetings);
+        else return ResultUtil.Error("失败");
+
+    }
     @GetMapping("/verifymeeting")
     public Result verifyMeeting(int meeting,HttpServletRequest request) {
         if (request.getSession().getAttribute("admin") == null) {
