@@ -308,7 +308,7 @@ public class MeetingController {
         if (session.getSession().getAttribute("admin")==null){
             return ResultUtil.Error("请先登录");
         }
-        List<Meeting> meetings=meetingRepository.findAll();
+        List<Meeting> meetings=meetingRepository.findByStateLessThanEqual(3);
         List<MeetingVO> meetingVOS=meetings.stream().map(meeting -> {
             MeetingVO meetingVO=new MeetingVO();
             BeanUtils.copyProperties(meeting,meetingVO);

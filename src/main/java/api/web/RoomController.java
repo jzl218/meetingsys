@@ -112,6 +112,9 @@ public class RoomController {
         Long endtime = timeDto.getEndtime();
         List<String> list =new LinkedList<>();
         List<Meeting> meetings = meetingRepository.findByStateLessThanEqual(3);
+        if (meetings.size()==0){
+            return ResultUtil.Success(roomRepository.findAll());
+        }
             meetings.stream().forEach(meeting -> {
             Long nstarttime = meeting.getStarttime() - 20 * 60 * 1000;
             Long nendttime = meeting.getEndtime() + 20 * 60 * 1000;
@@ -129,6 +132,9 @@ public class RoomController {
         Long starttime=meetingDto.getStarttime();
         Long endtime=meetingDto.getEndtime();
         List<Meeting> meetings = meetingRepository.findByStateLessThanEqual(3);
+        if (meetings.size()==0){
+            return ResultUtil.Success(roomRepository.findAll());
+        }
         List<String> list =new LinkedList<>();
         meetings.stream().forEach(meeting -> {
             Long nstarttime = meeting.getStarttime() - 20 * 60 * 1000;
