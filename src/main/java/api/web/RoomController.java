@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/room")
@@ -108,19 +109,16 @@ public class RoomController {
 
     @PostMapping("/selectbytime")//TODO
     public Result  selectRoomByMeetingTime(@RequestBody TimeDto timeDto) {
-        Long starttime = timeDto.getStarttime();
-        Long endtime = timeDto.getEndtime();
-        List<String> list =new LinkedList<>();
-        List<Meeting> meetings = meetingRepository.findByStateLessThanEqual(3);
+        Long nstarttime = timeDto.getStarttime()-20*60*1000;
+        Long nendtime = timeDto.getEndtime()+20*60*1000;
+        List<Meeting> meetings = meetingRepository.findByStateLessThanEqualAndStarttimeBetweenAndEndtimeBetween(3,nstarttime,nendtime,nstarttime,nendtime);
         if (meetings.size()==0){
             return ResultUtil.Success(roomRepository.findAll());
         }
-            meetings.stream().forEach(meeting -> {
-            Long nstarttime = meeting.getStarttime() - 20 * 60 * 1000;
-            Long nendttime = meeting.getEndtime() + 20 * 60 * 1000;
-            if ((starttime < nendttime && starttime > nstarttime) || (endtime > nstarttime && endtime < nendttime))
-                list.add(meeting.getRoom());
-        });
+        List<String> list =meetings.stream().map(meeting -> {
+            return meeting.getRoom();
+        }).collect(Collectors.toList());
+
         List<Room> rooms=roomRepository.findByIdNotInOrderById(list);
         return ResultUtil.Success(rooms);
     }
@@ -129,20 +127,16 @@ public class RoomController {
     
     @PostMapping("/selectbyall")
     public Result selectByAll(@RequestBody Meeting meetingDto){
-        Long starttime=meetingDto.getStarttime();
-        Long endtime=meetingDto.getEndtime();
-        List<Meeting> meetings = meetingRepository.findByStateLessThanEqual(3);
+        Long nstarttime = meetingDto.getStarttime()-20*60*1000;
+        Long nendtime = meetingDto.getEndtime()+20*60*1000;
+        List<Meeting> meetings = meetingRepository.findByStateLessThanEqualAndStarttimeBetweenAndEndtimeBetween(3,nstarttime,nendtime,nstarttime,nendtime);
         if (meetings.size()==0){
             return ResultUtil.Success(roomRepository.findRoomsBySizeGreaterThanEqual(meetingDto.getSize()));
         }
-        List<String> list =new LinkedList<>();
-        meetings.stream().forEach(meeting -> {
-            Long nstarttime = meeting.getStarttime() - 20 * 60 * 1000;
-            Long nendttime = meeting.getEndtime() + 20 * 60 * 1000;
-            if ((starttime < nendttime && starttime > nstarttime) || (endtime > nstarttime && endtime < nendttime))
-                if (meeting.getSize()>meetingDto.getSize())
-                list.add(meeting.getRoom());
-        });
+        List<String> list =meetings.stream().filter(meeting ->{return meeting.getSize()>=meetingDto.getSize();}).map(meeting -> {
+            return meeting.getRoom();
+        }).collect(Collectors.toList());
+
         List<Room> rooms=roomRepository.findByIdNotInOrderById(list);
         return ResultUtil.Success(rooms);
     }
