@@ -211,7 +211,7 @@ public class MeetingController {
     }
 
 
-    @PostMapping("/selectbyorder")//TODO
+    @GetMapping("/selectbyorder")//TODO
     public Result selectOrder() {
         String account=accountProvider.getNowAccout().getId();
         List<Meeting> meetings=meetingRepository.findByOriginatorOrderByStarttimeDesc(account);
@@ -271,7 +271,7 @@ public class MeetingController {
         return ResultUtil.Success(meetingVOS);
     }
 
-    @PostMapping("/selectbyjoin")//TODO
+    @GetMapping("/selectbyjoin")//TODO
     public Result selectJoin(){
         String account=accountProvider.getNowAccout().getId();
         List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByAccount(account);
