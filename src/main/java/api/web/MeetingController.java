@@ -210,6 +210,23 @@ public class MeetingController {
         return ResultUtil.Success(meetingVOS);
     }
 
+
+    @PostMapping("/selectbyorder")//TODO
+    public Result selectOrder() {
+        String account=accountProvider.getNowAccout().getId();
+        List<Meeting> meetings=meetingRepository.findByOriginatorOrderByStarttimeDesc(account);
+        List<MeetingVO> meetingVOS=meetings.stream()
+                .map(meeting -> {
+                    MeetingVO meetingVO=new MeetingVO();
+                    BeanUtils.copyProperties(meeting,meetingVO);
+                    meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
+                    return meetingVO;
+                }).collect(Collectors.toList());
+        if (meetingVOS.size()==0)
+            return ResultUtil.Error("已没有更多会议");
+        return ResultUtil.Success(meetingVOS);
+    }
+
     @PostMapping("/selectallorder")//TODO
     public Result selectAllOrder(@RequestBody OrderDto orderDto) {
         int size=orderDto.getSize();
@@ -242,6 +259,27 @@ public class MeetingController {
                     return meetingAcoount.getMeeting();
                 }).collect(Collectors.toList());
         List<Meeting> meetings=meetingRepository.findByIdIn(state,id,page,size);
+        List<MeetingVO> meetingVOS=meetings.stream()
+                .map(meeting -> {
+                    MeetingVO meetingVO=new MeetingVO();
+                    BeanUtils.copyProperties(meeting,meetingVO);
+                    meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
+                    return meetingVO;
+                }).collect(Collectors.toList());
+        if (meetingVOS.size()==0)
+            return ResultUtil.Error("已没有更多会议");
+        return ResultUtil.Success(meetingVOS);
+    }
+
+    @PostMapping("/selectbyjoin")//TODO
+    public Result selectJoin(){
+        String account=accountProvider.getNowAccout().getId();
+        List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByAccount(account);
+        List<Integer> id=meetingAcoounts.stream()
+                .map(meetingAcoount -> {
+                    return meetingAcoount.getMeeting();
+                }).collect(Collectors.toList());
+        List<Meeting> meetings=meetingRepository.findByIdIn(id);
         List<MeetingVO> meetingVOS=meetings.stream()
                 .map(meeting -> {
                     MeetingVO meetingVO=new MeetingVO();
