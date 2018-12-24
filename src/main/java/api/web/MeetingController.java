@@ -259,13 +259,37 @@ public class MeetingController {
                     return meetingAcoount.getMeeting();
                 }).collect(Collectors.toList());
         List<Meeting> meetings=meetingRepository.findByIdIn(state,id,page,size);
-        List<MeetingVO> meetingVOS=meetings.stream()
+        List<MeetingVO> meetingVOS=meetings.stream().filter(meeting -> {
+            return !meeting.getOriginator().equals(accountProvider.getNowAccout().getAccount());
+        })
                 .map(meeting -> {
                     MeetingVO meetingVO=new MeetingVO();
                     BeanUtils.copyProperties(meeting,meetingVO);
                     meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
                     return meetingVO;
                 }).collect(Collectors.toList());
+        if (meetingVOS.size()==0)
+            return ResultUtil.Error("已没有更多会议");
+        return ResultUtil.Success(meetingVOS);
+    }
+
+
+
+    @GetMapping("/selectall")//TODO
+    public Result selectAll(){
+        String account=accountProvider.getNowAccout().getId();
+        List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByAccount(account);
+        List<Integer> id=meetingAcoounts.stream()
+                .map(meetingAcoount -> {
+                    return meetingAcoount.getMeeting();
+                }).collect(Collectors.toList());
+        List<Meeting> meetings=meetingRepository.findByIdIn(id);
+        List<MeetingVO> meetingVOS=meetings.stream().map(meeting -> {
+            MeetingVO meetingVO=new MeetingVO();
+            BeanUtils.copyProperties(meeting,meetingVO);
+            meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
+            return meetingVO;
+        }).collect(Collectors.toList());
         if (meetingVOS.size()==0)
             return ResultUtil.Error("已没有更多会议");
         return ResultUtil.Success(meetingVOS);
@@ -280,8 +304,9 @@ public class MeetingController {
                     return meetingAcoount.getMeeting();
                 }).collect(Collectors.toList());
         List<Meeting> meetings=meetingRepository.findByIdIn(id);
-        List<MeetingVO> meetingVOS=meetings.stream()
-                .map(meeting -> {
+        List<MeetingVO> meetingVOS=meetings.stream().filter(meeting -> {
+            return !meeting.getOriginator().equals(accountProvider.getNowAccout().getAccount());
+        }).map(meeting -> {
                     MeetingVO meetingVO=new MeetingVO();
                     BeanUtils.copyProperties(meeting,meetingVO);
                     meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
@@ -303,7 +328,9 @@ public class MeetingController {
                     return meetingAcoount.getMeeting();
                 }).collect(Collectors.toList());
         List<Meeting> meetings=meetingRepository.findByIdIn(id,page,size);
-        List<MeetingVO> meetingVOS=meetings.stream()
+        List<MeetingVO> meetingVOS=meetings.stream().filter(meeting -> {
+            return !meeting.getOriginator().equals(accountProvider.getNowAccout().getAccount());
+        })
                 .map(meeting -> {
                     MeetingVO meetingVO=new MeetingVO();
                     BeanUtils.copyProperties(meeting,meetingVO);

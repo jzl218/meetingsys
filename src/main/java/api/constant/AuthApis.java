@@ -28,7 +28,8 @@ public enum AuthApis {
 	Q(15,"/api/meeting/selectallorder"),
 	SELECT_All_JOIN(10,"/api/meeting/selectalljoin"),
 	QQ(15,"/api/meeting/selectbyorder"),
-	SELECT_All_JOINC(10,"/api/meeting/selectbyjoin")
+	SELECT_All_JOINC(10,"/api/meeting/selectbyjoin"),
+	SELECT_All_JOINCD(10,"/api/meeting/selectall")
 	;
 
 	/** ?~? 表示教师角色权限*/
