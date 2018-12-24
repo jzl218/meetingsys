@@ -24,7 +24,9 @@ public enum AuthApis {
 	GET_ORDER_COUNT(11,"/api/meeting/getordercount"),
 	GET_JOIN_COUNT(12,"/api/meeting/getjoincount"),
 	GET_MEETING_DETAIL(13,"/api/meeting/selectbyinvitecode"),
-	GET_BY_ALL(14,"/api/room/selectbyall")
+	GET_BY_ALL(14,"/api/room/selectbyall"),
+	Q(15,"/api/meeting/selectallorder"),
+	SELECT_All_JOIN(10,"/api/meeting/selectalljoin")
 	;
 
 	/** ?~? 表示教师角色权限*/
