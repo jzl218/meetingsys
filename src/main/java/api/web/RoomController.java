@@ -4,10 +4,12 @@ import api.Dto.BoundDto;
 import api.Dto.TimeDto;
 import api.Entity.Meeting;
 import api.Entity.Room;
+import api.repository.AccountRepository;
 import api.repository.MeetingRepository;
 import api.repository.RoomRepository;
 import api.utils.BeanUtils;
 import api.utils.ResultUtil;
+import api.vo.MeetingVO;
 import api.vo.Result;
 import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ public class RoomController {
     private RoomRepository roomRepository;
     @Autowired
     private MeetingRepository meetingRepository;
+    @Autowired
+    private AccountRepository accountRepository;
 
     @PostMapping("/add")
     public Result addRoom(@RequestBody Room roomDto, HttpServletRequest session){
@@ -159,9 +163,6 @@ public class RoomController {
 
     @PostMapping("/boundroom")
     public Result roomBound(@RequestBody BoundDto boundDto,HttpServletRequest session){
-        if (session.getSession().getAttribute("admin")==null){
-            return ResultUtil.Error("请先登录");
-        }
         Room room=roomRepository.findById(boundDto.getRoom());
         if (room != null) {
             room.setDevice(boundDto.getDevice());
@@ -171,11 +172,40 @@ public class RoomController {
         else return ResultUtil.Error("失败");
 
     }
+    public static Long getTodayZeroPointTimestamps(){
+        Long currentTimestamps=System.currentTimeMillis();
+        Long oneDayTimestamps= Long.valueOf(60*60*24*1000);
+        return currentTimestamps-(currentTimestamps+60*60*8*1000)%oneDayTimestamps;
+    }
+
+    @GetMapping("/todayuse")
+    public Result todayUse(String room){
+        Long todayzero=getTodayZeroPointTimestamps();
+        Long after=todayzero+60*60*24*1000;
+        if(meetingRepository.findByRoomAndStarttimeBetweenOrderByStarttime(todayzero,after)==null)
+            return ResultUtil.Error("当天没有会议");
+        List<Meeting> meetings=meetingRepository.findByRoomAndStarttimeBetweenOrderByStarttime(todayzero,after);
+        List<MeetingVO> meetings1=meetings.stream().map(meeting -> {
+            MeetingVO meetingVO=new MeetingVO();
+            BeanUtils.copyProperties(meeting,meetingVO);
+            meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
+            return meetingVO;
+        }).collect(Collectors.toList());
+        return ResultUtil.Success(meetings1);
+    }
 
 
-
-
-
+    @GetMapping("/nowuse")
+    public Result nowUse(String room){
+        Long currentTimestamps=System.currentTimeMillis();
+        if (meetingRepository.findByStarttimeLessThanAndEndtimeGreaterThan(currentTimestamps,currentTimestamps)==null)
+            return ResultUtil.Error("现在没有会议");
+        Meeting meeting=meetingRepository.findByStarttimeLessThanAndEndtimeGreaterThan(currentTimestamps,currentTimestamps);
+        MeetingVO meetingVO=new MeetingVO();
+        BeanUtils.copyProperties(meeting,meetingVO);
+        meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
+        return ResultUtil.Success(meetingVO);
+    }
 
 
 
