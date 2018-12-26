@@ -24,9 +24,9 @@ public interface MeetingRepository extends JpaRepository<Meeting,Integer> {
 
     List<Meeting> findByStateLessThanEqualAndStarttimeBetweenAndEndtimeBetween(int state,long nstarttime,long nendtime,long n1starttime,long n2endtime);
 
-    List<Meeting> findByRoomAndStarttimeBetweenOrderByStarttime(long today,long tomm);
+    List<Meeting> findByRoomAndStarttimeBetweenOrderByStarttime(String room,long today,long tomm);
 
-    Meeting findByStarttimeLessThanAndEndtimeGreaterThan(long time,long time2);
+    Meeting findByRoomAndStarttimeLessThanAndEndtimeGreaterThan(String room,long time,long time2);
 
     Meeting findByInvitecode(String invitecode);
 

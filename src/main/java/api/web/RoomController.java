@@ -182,9 +182,9 @@ public class RoomController {
     public Result todayUse(String room){
         Long todayzero=getTodayZeroPointTimestamps();
         Long after=todayzero+60*60*24*1000;
-        if(meetingRepository.findByRoomAndStarttimeBetweenOrderByStarttime(todayzero,after)==null)
+        if(meetingRepository.findByRoomAndStarttimeBetweenOrderByStarttime(room,todayzero,after)==null)
             return ResultUtil.Error("当天没有会议");
-        List<Meeting> meetings=meetingRepository.findByRoomAndStarttimeBetweenOrderByStarttime(todayzero,after);
+        List<Meeting> meetings=meetingRepository.findByRoomAndStarttimeBetweenOrderByStarttime(room,todayzero,after);
         List<MeetingVO> meetings1=meetings.stream().map(meeting -> {
             MeetingVO meetingVO=new MeetingVO();
             BeanUtils.copyProperties(meeting,meetingVO);
@@ -198,9 +198,9 @@ public class RoomController {
     @GetMapping("/nowuse")
     public Result nowUse(String room){
         Long currentTimestamps=System.currentTimeMillis();
-        if (meetingRepository.findByStarttimeLessThanAndEndtimeGreaterThan(currentTimestamps,currentTimestamps)==null)
+        if (meetingRepository.findByRoomAndStarttimeLessThanAndEndtimeGreaterThan(room,currentTimestamps,currentTimestamps)==null)
             return ResultUtil.Error("现在没有会议");
-        Meeting meeting=meetingRepository.findByStarttimeLessThanAndEndtimeGreaterThan(currentTimestamps,currentTimestamps);
+        Meeting meeting=meetingRepository.findByRoomAndStarttimeLessThanAndEndtimeGreaterThan(room,currentTimestamps,currentTimestamps);
         MeetingVO meetingVO=new MeetingVO();
         BeanUtils.copyProperties(meeting,meetingVO);
         meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
