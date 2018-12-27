@@ -4,12 +4,12 @@ import api.Dto.MeetingDto;
 import api.Dto.OrderDto;
 import api.Entity.Meeting;
 import api.Entity.MeetingAcoount;
-import api.repository.AccountRepository;
-import api.repository.MeetingAccountRepository;
-import api.repository.MeetingRepository;
+import api.Entity.Opentime;
+import api.repository.*;
 import api.sevice.AccountProviderImpl;
 import api.utils.BeanUtils;
 import api.utils.ResultUtil;
+import api.utils.TimeUtils;
 import api.vo.MeetingVO;
 import api.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,10 @@ public class MeetingController {
     private MeetingAccountRepository meetingAccountRepository;
     @Autowired
     private AccountRepository accountRepository;
-
+    @Autowired
+    private RoomRepository roomRepository;
+    @Autowired
+    private OpentimeRepository opentimeRepository;
 
     @GetMapping("/selectnoverify")
     public Result selectMeeting(HttpServletRequest session){
@@ -125,10 +128,33 @@ public class MeetingController {
     }
 
 
+
     @PostMapping("/add")//TODO
     public Result addMeeting(@RequestBody MeetingDto meetingDto){
+        String room=meetingDto.getRoom();
         Long starttime=meetingDto.getStarttime()-20*60*1000;
         Long endtime=meetingDto.getEndtime()+20*60*1000;
+        String opentime=roomRepository.findById(room).getOpentime();
+        String state=TimeUtils.getDataState(opentime,TimeUtils.getDataE(meetingDto.getStarttime()));;
+        if (TimeUtils.getOneDayTimestamps(meetingDto.getStarttime())<=60*1000*60*12&&
+        TimeUtils.getOneDayTimestamps(meetingDto.getEndtime())<=60*1000*60*12){
+            if (state.charAt(0)=='0'){
+               return ResultUtil.Error("会议室未开放");
+            }
+            else if (opentimeRepository.findByOpensLessThanAndOpeneGreaterThan(meetingDto.getStarttime(),meetingDto.getEndtime())==null)
+                return ResultUtil.Error("会议室未开放");
+        }
+        if (TimeUtils.getOneDayTimestamps(meetingDto.getStarttime())>=60*1000*60*12&&
+                TimeUtils.getOneDayTimestamps(meetingDto.getEndtime())>=60*1000*60*12){
+            if (state.charAt(1)=='0'){
+                return ResultUtil.Error("会议室未开放");
+            }
+            else if (opentimeRepository.findByOpenasLessThanAndOpenaeGreaterThan(meetingDto.getStarttime(),meetingDto.getEndtime())==null)
+                return ResultUtil.Error("会议室未开放");
+        }
+
+
+
         List<Meeting> meetings=meetingRepository.findByStateLessThanEqualAndStarttimeBetweenAndEndtimeBetween(3,starttime,endtime,starttime,endtime) ;
         if (meetings.size()==0){
             Meeting meeting=new Meeting();
@@ -419,7 +445,6 @@ public class MeetingController {
             return meetingVO;
         }).collect(Collectors.toList());
        return ResultUtil.Success(meetingVOS);
-
 
     }
 
