@@ -37,8 +37,8 @@ public class FaceController {
 
     public String addId = "6NicX292WuD2npxeHZPaCQSVbfuN6DionSMfu2XRdwep";
     public String sdkKet = "HMXxTNqu3rnhbhGZB3wNURFCLVb4tiriTMXpxnytMKHM";
-    private double passrate = 80;
-    private double passmax=90;
+    private double passrate = 95;
+    private double passmax=80;
 
     @GetMapping("/facecompare")
     public Result faceCompare(@RequestBody ImgDto imgDto) throws IOException {
@@ -97,9 +97,8 @@ public class FaceController {
             }
         });
 
-        List<RateVO> passrateVOs=rateVOS.stream().map(rateVO -> {
-                if (rateVO.getData()>=passrate);
-                return rateVO   ;
+        List<RateVO> passrateVOs=rateVOS.stream().filter(rateVO -> {
+                return 100*rateVO.getData()>=passrate;
             }).collect(Collectors.toList());
         List<Double> passrates=rateVOS.stream().map(rateVO -> {
             return rateVO.getData();
@@ -137,4 +136,126 @@ public class FaceController {
             return ResultUtil.Success();
     }
 
+    @GetMapping("/facetest2")
+    public Result faceTest2(){
+        for (int i=1;i<=1;i++){
+            Account account=new Account();
+            String birthpath="pictest/";
+            File file=new File(birthpath+i+"/");
+            String name[]=  file.list();
+            ImageInfo imageInfo = face.getRGBData(new File(birthpath+i+"/"+name[1]));
+            FaceEngine faceEngine = new FaceEngine();
+            faceEngine.active(addId, sdkKet);
+            faceEngine.init(face.getengineConfig());
+            List<FaceInfo> faceInfoList = new ArrayList<FaceInfo>();
+            faceEngine.detectFaces(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList);
+            FaceFeature faceFeature = new FaceFeature();
+            faceEngine.extractFaceFeature(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList.get(0), faceFeature);
+            byte[] data=faceFeature.getFeatureData();
+            account.setFace(data);
+            account.setName(i+"name");
+            account.setPassword(i+"pass");
+            account.setId(i+"id");
+            accountRepository.save(account);
+        }
+        return ResultUtil.Success();
+
+    }
+    @GetMapping("/facecomparetest")
+    public void faceComparetest() throws IOException{
+        int TP=0,FP=0,FN=0,TN=0;
+        List<Account> accounts=accountRepository.findAll();
+
+        for (int i=62;i<=123;i++){
+
+
+            List<ImageInfo> imageInfos=new LinkedList<>();
+            String birthpath="pictest/";
+            File file=new File(birthpath+i+"/");
+            String name[]=  file.list();
+
+            for (int a=1;a<=5;a++){
+                imageInfos.add(face.getRGBData(new File(birthpath+i+"/"+name[a])));
+            }
+            FaceEngine faceEngine = new FaceEngine();
+            faceEngine.active(addId, sdkKet);
+            faceEngine.init(face.getengineConfig());
+            List<RateVO> rateVOS=new LinkedList<>();
+            Iterator iterator=imageInfos.iterator();
+            int size = imageInfos.size();
+            int flag =0;
+            for (int q=0; q<size; q++) {
+                ImageInfo imageInfo = imageInfos.get(q);
+                List<FaceInfo> faceInfoList = new ArrayList<FaceInfo>();
+                try {
+                    faceEngine.detectFaces(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList);
+                    FaceFeature faceFeature = new FaceFeature();
+                    faceEngine.extractFaceFeature(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList.get(0), faceFeature);
+                    FaceFeature targetFaceFeature = new FaceFeature();
+                    targetFaceFeature.setFeatureData(faceFeature.getFeatureData());
+                    Map hashMap = new HashMap();
+                    accounts.stream().forEach(account -> {
+                        FaceFeature sourceFaceFeature = new FaceFeature();
+                        sourceFaceFeature.setFeatureData(account.getFace());
+                        FaceSimilar faceSimilar = new FaceSimilar();
+                        int result = faceEngine.compareFaceFeature(targetFaceFeature, sourceFaceFeature, faceSimilar);
+                        hashMap.put(account.getId(), faceSimilar.getScore());
+                    });
+                    double value = 0;
+                    String maxKey = null;
+                    RateVO rateVO = new RateVO();
+                    List list = new ArrayList();
+                    Iterator ite = hashMap.entrySet().iterator();
+                    while (ite.hasNext()) {
+                        Map.Entry entry = (Map.Entry) ite.next();
+                        value = Double.parseDouble(entry.getValue().toString());
+                        list.add(entry.getValue());
+                        Collections.sort(list);
+                        if (value == Double.parseDouble(list.get(list.size() - 1).toString())) {
+                            maxKey = entry.getKey().toString();
+                            rateVO.setId(maxKey);
+                            rateVO.setData(value);
+                        }
+                    }
+                    rateVOS.add(rateVO);
+                }catch (IndexOutOfBoundsException e){
+
+                    if (flag>2) {
+                        TN++;
+                        break;
+                    }
+                    flag++;
+                    continue;
+                }
+            }
+            System.out.println(rateVOS);
+            int[] passrateVOs = {0};
+            rateVOS.stream().forEach(rateVO -> {
+                if (100*rateVO.getData()>passrate)
+                    passrateVOs[0] = passrateVOs[0] +1;
+            });
+
+            if (passrateVOs[0]>=3){
+               if (rateVOS.get(1).getId().equals(i+"id"))
+                    TP++;
+                else FP++;}
+            else
+                if (rateVOS.get(1).getId().equals(i+"id"))
+                    FN++;
+                else TN++;
+            System.out.println(TP);
+            System.out.println(FP);
+            System.out.println(FN);
+            System.out.println(TN);
+            System.out.println(i+"id");
+        }
+        System.out.println(TP);
+        System.out.println(FP);
+        System.out.println(FN);
+        System.out.println(TN);
+        //人脸对比
+    }
+
+
 }
+
