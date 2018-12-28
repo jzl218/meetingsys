@@ -27,7 +27,7 @@ public class MeetingVO {
 
     private int issigned;
 
-    private int invitecode;
+    private String invitecode;
 
     private int state;
 
