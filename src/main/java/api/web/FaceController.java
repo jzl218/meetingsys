@@ -109,7 +109,7 @@ public class FaceController {
                 return 100*rateVO.getData()>=passrate;
             }).collect(Collectors.toList());
         if (passrateVOs.size()>=3)
-            return ResultUtil.Success(passrateVOs.get(0).getId());
+            return ResultUtil.Success(accountRepository.findById(passrateVOs.get(0).getId()).getName());
         else return ResultUtil.Error("识别失败或您没有参加此会议");
 
         //人脸对比
