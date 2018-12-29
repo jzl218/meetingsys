@@ -121,18 +121,40 @@ public class RoomController {
 
     @PostMapping("/selectbytime")//TODO
     public Result  selectRoomByMeetingTime(@RequestBody TimeDto timeDto) {
+        String dayE=TimeUtils.getDataE(timeDto.getStarttime());
+        List<String> rooms2 = null;
+        List<Room> rooms1=roomRepository.findAll();
+            rooms1.stream().forEach(room -> {
+            String opentime = room.getOpentime();
+            String state = TimeUtils.getDataState(opentime, TimeUtils.getDataE(timeDto.getStarttime()));
 
+            if (TimeUtils.getOneDayTimestamps(timeDto.getStarttime()) <= 60 * 1000 * 60 * 4 &&
+                    TimeUtils.getOneDayTimestamps(timeDto.getEndtime()) <= 60 * 1000 * 60 * 4) {
+                if (state.charAt(0) == '0') {
+                    rooms2.add(room.getId());
+                } else if (opentimeRepository.findByOpensLessThanAndOpeneGreaterThan(timeDto.getStarttime(), timeDto.getEndtime()) == null)
+                    rooms2.add(room.getId());
+            }
+            if (TimeUtils.getOneDayTimestamps(timeDto.getStarttime()) >= 60 * 1000 * 60 * 4 &&
+                    TimeUtils.getOneDayTimestamps(timeDto.getEndtime()) >= 60 * 1000 * 60 * 4) {
+                if (state.charAt(1) == '0') {
+                    rooms2.add(room.getId());
+                } else if (opentimeRepository.findByOpenasLessThanAndOpenaeGreaterThan(timeDto.getStarttime(), timeDto.getEndtime()) == null)
+                    rooms2.add(room.getId());
+            }
+        });
         Long nstarttime = timeDto.getStarttime()-20*60*1000;
         Long nendtime = timeDto.getEndtime()+20*60*1000;
         List<Meeting> meetings = meetingRepository.findByStateLessThanEqualAndStarttimeBetweenAndEndtimeBetween(3,nstarttime,nendtime,nstarttime,nendtime);
         if (meetings.size()==0){
             return ResultUtil.Success(roomRepository.findAll());
         }
-        List<String> list =meetings.stream().map(meeting -> {
-            return meeting.getRoom();
-        }).collect(Collectors.toList());
+        meetings.stream().forEach(meeting -> {
+            rooms2.add(meeting.getRoom());
+        });
 
-        List<Room> rooms=roomRepository.findByIdNotInOrderById(list);
+        List<Room> rooms=roomRepository.findByIdNotInOrderById(rooms2);
+
         return ResultUtil.Success(rooms);
     }
 
@@ -140,27 +162,6 @@ public class RoomController {
     
     @PostMapping("/selectbyall")
     public Result selectByAll(@RequestBody Meeting meetingDto){
-        String room=meetingDto.getRoom();
-        String dayE=TimeUtils.getDataE(meetingDto.getStarttime());
-        if (roomRepository.findById(room).getOpentime()!=null) {
-            String opentime = roomRepository.findById(room).getOpentime();
-            String state = TimeUtils.getDataState(opentime, TimeUtils.getDataE(meetingDto.getStarttime()));
-            ;
-            if (TimeUtils.getOneDayTimestamps(meetingDto.getStarttime()) <= 60 * 1000 * 60 * 4 &&
-                    TimeUtils.getOneDayTimestamps(meetingDto.getEndtime()) <= 60 * 1000 * 60 * 4) {
-                if (state.charAt(0) == '0') {
-                    return ResultUtil.Error("会议室未开放");
-                } else if (opentimeRepository.findByOpensLessThanAndOpeneGreaterThan(meetingDto.getStarttime(), meetingDto.getEndtime()) == null)
-                    return ResultUtil.Error("会议室未开放");
-            }
-            if (TimeUtils.getOneDayTimestamps(meetingDto.getStarttime()) >= 60 * 1000 * 60 * 4 &&
-                    TimeUtils.getOneDayTimestamps(meetingDto.getEndtime()) >= 60 * 1000 * 60 * 4) {
-                if (state.charAt(1) == '0') {
-                    return ResultUtil.Error("会议室未开放");
-                } else if (opentimeRepository.findByOpenasLessThanAndOpenaeGreaterThan(meetingDto.getStarttime(), meetingDto.getEndtime()) == null)
-                    return ResultUtil.Error("会议室未开放");
-            }
-        }
         Long nstarttime = meetingDto.getStarttime()-20*60*1000;
         Long nendtime = meetingDto.getEndtime()+20*60*1000;
         List<Meeting> meetings = meetingRepository.findByStateLessThanEqualAndStarttimeBetweenAndEndtimeBetween(3,nstarttime,nendtime,nstarttime,nendtime);
