@@ -171,17 +171,45 @@ public class RoomController {
     
     @PostMapping("/selectbyall")
     public Result selectByAll(@RequestBody Meeting meetingDto){
+        String dayE=TimeUtils.getDataE(meetingDto.getStarttime());
+        Opentime opentimeObj=opentimeRepository.findById(1);
+        List<String> rooms2 = new ArrayList<>();
+        List<Room> rooms1=roomRepository.findAll();
+        rooms1.stream().forEach(room -> {
+            String opentime = room.getOpentime();
+            String state = TimeUtils.getDataState(opentime, TimeUtils.getDataE(meetingDto.getStarttime()));
+            Long onedays=TimeUtils.getOneDayTimestamps(meetingDto.getStarttime());
+            Long onedaye=TimeUtils.getOneDayTimestamps(meetingDto.getEndtime());
+            if (onedays <= 60 * 1000 * 60 * 4&&
+                    onedaye<= 60 * 1000 * 60 * 4) {
+                if (state.charAt(0) == '0') {
+                    rooms2.add(room.getId());
+                } else if (!(opentimeObj.getOpens()<=onedays&&opentimeObj.getOpene()>=onedaye))
+                    rooms2.add(room.getId());
+            }
+            if (TimeUtils.getOneDayTimestamps(meetingDto.getStarttime()) >= 60 * 1000 * 60 * 4 &&
+                    TimeUtils.getOneDayTimestamps(meetingDto.getEndtime()) >= 60 * 1000 * 60 * 4) {
+                if (state.charAt(1) == '0') {
+                    rooms2.add(room.getId());
+                } else if (!(opentimeObj.getOpenas()<=onedays&&opentimeObj.getOpenae()>=onedaye))
+                    rooms2.add(room.getId());
+            }
+        });
         Long nstarttime = meetingDto.getStarttime()-20*60*1000;
         Long nendtime = meetingDto.getEndtime()+20*60*1000;
         List<Meeting> meetings = meetingRepository.findByStateLessThanEqualAndStarttimeBetweenAndEndtimeBetween(3,nstarttime,nendtime,nstarttime,nendtime);
         if (meetings.size()==0){
-            return ResultUtil.Success(roomRepository.findRoomsBySizeGreaterThanEqual(meetingDto.getSize()));
+            if (rooms2.size()==0){
+                return ResultUtil.Success(roomRepository.findRoomsBySizeGreaterThanEqual(meetingDto.getSize()));
+            }
+            return ResultUtil.Success(roomRepository.findByIdNotInAndSizeGreaterThanEqualOrderById(rooms2,meetingDto.getSize()));
         }
-        List<String> list =meetings.stream().filter(meeting ->{return meeting.getSize()>=meetingDto.getSize();}).map(meeting -> {
-            return meeting.getRoom();
-        }).collect(Collectors.toList());
+            meetings.stream().forEach(meeting ->{
+            if (meeting.getSize()>meetingDto.getSize())
+                rooms2.add(meeting.getRoom());
+        });
 
-        List<Room> rooms=roomRepository.findByIdNotInOrderById(list);
+        List<Room> rooms=roomRepository.findByIdNotInOrderById(rooms2);
         return ResultUtil.Success(rooms);
     }
 

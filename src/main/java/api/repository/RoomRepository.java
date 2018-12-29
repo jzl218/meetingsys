@@ -13,4 +13,6 @@ public interface RoomRepository extends JpaRepository<Room,Integer> {
 
 
     List<Room> findByIdNotInOrderById(List<String> list);
+
+    List<Room> findByIdNotInAndSizeGreaterThanEqualOrderById(List<String> list,int size);
 }
