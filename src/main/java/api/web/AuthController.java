@@ -85,8 +85,8 @@ public class AuthController {
         }
         Account account=new Account();
         BeanUtils.copyProperties(accountDto,account);
-        File file= PicUtil.decode64(accountDto.getFace());
-        ImageInfo imageInfo=face.getRGBData(file);
+        String file= PicUtil.decode64(accountDto.getFace());
+        ImageInfo imageInfo=face.getRGBData(new File(file));
         FaceEngine faceEngine=new FaceEngine();
         faceEngine.active(addId,sdkKet);
         faceEngine.init(face.getengineConfig());
