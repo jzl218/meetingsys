@@ -49,11 +49,11 @@ public class FaceController {
                 }).collect(Collectors.toList());
         List<Account> accounts=accountRepository.findByIdIn(id);
         List<ImageInfo> imageInfos=new LinkedList<>();
-        ImageInfo imageInfo1 = face.getRGBData(PicUtil.decode64(imgDto.getImg1()));
-        ImageInfo imageInfo2 = face.getRGBData(PicUtil.decode64(imgDto.getImg2()));
-        ImageInfo imageInfo3 = face.getRGBData(PicUtil.decode64(imgDto.getImg3()));
-        ImageInfo imageInfo4 = face.getRGBData(PicUtil.decode64(imgDto.getImg4()));
-        ImageInfo imageInfo5 = face.getRGBData(PicUtil.decode64(imgDto.getImg5()));
+        ImageInfo imageInfo1 = face.getRGBData(new File(PicUtil.decode64(imgDto.getImg1())));
+        ImageInfo imageInfo2 = face.getRGBData(new File(PicUtil.decode64(imgDto.getImg2())));
+        ImageInfo imageInfo3 = face.getRGBData(new File(PicUtil.decode64(imgDto.getImg3())));
+        ImageInfo imageInfo4 = face.getRGBData(new File(PicUtil.decode64(imgDto.getImg4())));
+        ImageInfo imageInfo5 = face.getRGBData(new File(PicUtil.decode64(imgDto.getImg5())));
         imageInfos.add(imageInfo1);
         imageInfos.add(imageInfo2);
         imageInfos.add(imageInfo3);

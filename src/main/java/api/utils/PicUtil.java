@@ -34,7 +34,7 @@ public class PicUtil {
         return "data:image/"+last+";base64,"+encode;
     }
 
-    public static File decode64(String pic) throws IOException {
+    public static String decode64(String pic) throws IOException {
         String path="pic/";
         String filename= UUID.randomUUID().toString();
         if (pic==null||pic.equals(""))
@@ -45,7 +45,7 @@ public class PicUtil {
         OutputStream os=FileUtils.openOutputStream(file);
         os.write(data);
         os.close();
-        return file;
+        return path+filename;
     }
 
 
