@@ -141,23 +141,25 @@ public class RoomController {
     @PostMapping("/selectbyall")
     public Result selectByAll(@RequestBody Meeting meetingDto){
         String room=meetingDto.getRoom();
-        String opentime=roomRepository.findById(room).getOpentime();
-        String state=TimeUtils.getDataState(opentime,TimeUtils.getDataE(meetingDto.getStarttime()));;
-        if (TimeUtils.getOneDayTimestamps(meetingDto.getStarttime())<=60*1000*60*12&&
-                TimeUtils.getOneDayTimestamps(meetingDto.getEndtime())<=60*1000*60*12){
-            if (state.charAt(0)=='0'){
-                return ResultUtil.Error("会议室未开放");
+        String dayE=TimeUtils.getDataE(meetingDto.getStarttime());
+        if (roomRepository.findById(room).getOpentime()!=null) {
+            String opentime = roomRepository.findById(room).getOpentime();
+            String state = TimeUtils.getDataState(opentime, TimeUtils.getDataE(meetingDto.getStarttime()));
+            ;
+            if (TimeUtils.getOneDayTimestamps(meetingDto.getStarttime()) <= 60 * 1000 * 60 * 4 &&
+                    TimeUtils.getOneDayTimestamps(meetingDto.getEndtime()) <= 60 * 1000 * 60 * 4) {
+                if (state.charAt(0) == '0') {
+                    return ResultUtil.Error("会议室未开放");
+                } else if (opentimeRepository.findByOpensLessThanAndOpeneGreaterThan(meetingDto.getStarttime(), meetingDto.getEndtime()) == null)
+                    return ResultUtil.Error("会议室未开放");
             }
-            else if (opentimeRepository.findByOpensLessThanAndOpeneGreaterThan(meetingDto.getStarttime(),meetingDto.getEndtime())==null)
-                return ResultUtil.Error("会议室未开放");
-        }
-        if (TimeUtils.getOneDayTimestamps(meetingDto.getStarttime())>=60*1000*60*12&&
-                TimeUtils.getOneDayTimestamps(meetingDto.getEndtime())>=60*1000*60*12){
-            if (state.charAt(1)=='0'){
-                return ResultUtil.Error("会议室未开放");
+            if (TimeUtils.getOneDayTimestamps(meetingDto.getStarttime()) >= 60 * 1000 * 60 * 4 &&
+                    TimeUtils.getOneDayTimestamps(meetingDto.getEndtime()) >= 60 * 1000 * 60 * 4) {
+                if (state.charAt(1) == '0') {
+                    return ResultUtil.Error("会议室未开放");
+                } else if (opentimeRepository.findByOpenasLessThanAndOpenaeGreaterThan(meetingDto.getStarttime(), meetingDto.getEndtime()) == null)
+                    return ResultUtil.Error("会议室未开放");
             }
-            else if (opentimeRepository.findByOpenasLessThanAndOpenaeGreaterThan(meetingDto.getStarttime(),meetingDto.getEndtime())==null)
-                return ResultUtil.Error("会议室未开放");
         }
         Long nstarttime = meetingDto.getStarttime()-20*60*1000;
         Long nendtime = meetingDto.getEndtime()+20*60*1000;

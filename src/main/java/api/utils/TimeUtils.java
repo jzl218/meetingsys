@@ -26,27 +26,35 @@ public class TimeUtils {
 
 
     public static String getDataState(String opentime,String day){
+
+        System.out.println(opentime.substring(0,2));
+        System.out.println(opentime.substring(2,4));
+        System.out.println(opentime.substring(4,6));
+        System.out.println(opentime.substring(6,8));
+        System.out.println(opentime.substring(8,10));
+        System.out.println(opentime.substring(10,12));
+        System.out.println(opentime.substring(12,14));
         String num=null;
         if (day.equals("Mon")){
-            num=opentime.substring(0,1);
+            num=opentime.substring(0,2);
         }
         if (day.equals("Tue")){
-            num=opentime.substring(2,3);
+            num=opentime.substring(2,4);
         }
         if (day.equals("Wed")){
-            num=opentime.substring(4,5);
+            num=opentime.substring(4,6);
         }
         if (day.equals("Thu")){
-            num=opentime.substring(6,7);
+            num=opentime.substring(6,8);
         }
         if (day.equals("Fri")){
-            num=opentime.substring(8,9);
+            num=opentime.substring(8,10);
         }
         if (day.equals("Sat")){
-            num=opentime.substring(10,11);
+            num=opentime.substring(10,12);
         }
         if (day.equals("Sun")){
-            num=opentime.substring(12,13);
+            num=opentime.substring(12,14);
         }
         return num;
     }

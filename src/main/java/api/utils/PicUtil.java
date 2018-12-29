@@ -10,10 +10,7 @@ import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorConvertOp;
 import java.awt.image.DataBufferByte;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.UUID;
 
 public class PicUtil {
@@ -35,15 +32,17 @@ public class PicUtil {
     }
 
     public static String decode64(String pic) throws IOException {
+        String []picS=pic.split(",");
         String path="pic/";
         String filename= UUID.randomUUID().toString();
         if (pic==null||pic.equals(""))
             return null;
         File file = new File(path+filename);
         BASE64Decoder decoder=new BASE64Decoder();
-        byte[] data=decoder.decodeBuffer(pic);
-        OutputStream os=FileUtils.openOutputStream(file);
+        byte[] data=decoder.decodeBuffer(picS[1]);
+        OutputStream os=new FileOutputStream(path+filename);
         os.write(data);
+        os.flush();
         os.close();
         return path+filename;
     }

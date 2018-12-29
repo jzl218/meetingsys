@@ -62,8 +62,12 @@ public class FaceController {
         FaceEngine faceEngine = new FaceEngine();
         faceEngine.active(addId, sdkKet);
         faceEngine.init(face.getengineConfig());
+        Iterator iterator = imageInfos.iterator();
+        int size = imageInfos.size();
         List<RateVO> rateVOS=new LinkedList<>();
-        imageInfos.stream().forEach(imageInfo -> {
+        for (int q = 0; q < size; q++) {
+            try{
+            ImageInfo imageInfo=imageInfos.get(q);
             List<FaceInfo> faceInfoList = new ArrayList<FaceInfo>();
             faceEngine.detectFaces(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList);
             FaceFeature faceFeature = new FaceFeature();
@@ -95,7 +99,10 @@ public class FaceController {
                     rateVOS.add(rateVO);
                 }
             }
-        });
+        }catch (IndexOutOfBoundsException e){
+                continue;
+            }
+        }
 
         List<RateVO> passrateVOs=rateVOS.stream().filter(rateVO -> {
                 return 100*rateVO.getData()>=passrate;
