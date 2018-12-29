@@ -19,7 +19,11 @@ public class Account implements org.jsets.shiro.model.Account {
     private String name;
 
     @Column
+
     private byte[] face;
+
+    @Column
+    private String faceurl;
 
     @Column
     private String phonenum;

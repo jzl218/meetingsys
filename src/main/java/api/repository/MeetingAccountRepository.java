@@ -12,5 +12,6 @@ public interface MeetingAccountRepository extends JpaRepository<MeetingAcoount,I
 
     List<MeetingAcoount> findByMeeting(int meeting);
 
+    void deleteByAccount(String account);
 
 }

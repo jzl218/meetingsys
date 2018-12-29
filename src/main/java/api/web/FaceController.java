@@ -49,11 +49,22 @@ public class FaceController {
                 }).collect(Collectors.toList());
         List<Account> accounts=accountRepository.findByIdIn(id);
         List<ImageInfo> imageInfos=new LinkedList<>();
-        ImageInfo imageInfo1 = face.getRGBData(new File(PicUtil.decode64(imgDto.getImg1())));
-        ImageInfo imageInfo2 = face.getRGBData(new File(PicUtil.decode64(imgDto.getImg2())));
-        ImageInfo imageInfo3 = face.getRGBData(new File(PicUtil.decode64(imgDto.getImg3())));
-        ImageInfo imageInfo4 = face.getRGBData(new File(PicUtil.decode64(imgDto.getImg4())));
-        ImageInfo imageInfo5 = face.getRGBData(new File(PicUtil.decode64(imgDto.getImg5())));
+        String img1=PicUtil.decode64(imgDto.getImg1());
+        String img2=PicUtil.decode64(imgDto.getImg1());
+        String img3=PicUtil.decode64(imgDto.getImg1());
+        String img4=PicUtil.decode64(imgDto.getImg1());
+        String img5=PicUtil.decode64(imgDto.getImg1());
+        ImageInfo imageInfo1 = face.getRGBData(new File(img1));
+        ImageInfo imageInfo2 = face.getRGBData(new File(img2));
+        ImageInfo imageInfo3 = face.getRGBData(new File(img3));
+        ImageInfo imageInfo4 = face.getRGBData(new File(img4));
+        ImageInfo imageInfo5 = face.getRGBData(new File(img5));
+        new File(img1).delete();
+        new File(img2).delete();
+        new File(img3).delete();
+        new File(img4).delete();
+        new File(img5).delete();
+
         imageInfos.add(imageInfo1);
         imageInfos.add(imageInfo2);
         imageInfos.add(imageInfo3);

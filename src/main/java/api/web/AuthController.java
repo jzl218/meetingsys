@@ -9,6 +9,8 @@ import api.Entity.Account;
 import api.Entity.Manager;
 import api.repository.AccountRepository;
 import api.repository.ManagerRespository;
+import api.repository.MeetingAccountRepository;
+import api.repository.MeetingRepository;
 import api.sevice.AccountProviderImpl;
 import api.sevice.FaceImpl;
 import api.utils.BeanUtils;
@@ -46,8 +48,10 @@ public class AuthController {
     private AccountProviderImpl accountProvider;
     @Autowired
     private FaceImpl face;
-
-
+    @Autowired
+    private MeetingRepository meetingRepository;
+    @Autowired
+    private MeetingAccountRepository meetingAccountRepository;
 
 
 
@@ -87,6 +91,7 @@ public class AuthController {
         BeanUtils.copyProperties(accountDto,account);
         String file= PicUtil.decode64(accountDto.getFaceImg());
         ImageInfo imageInfo=face.getRGBData(new File(file));
+        account.setFaceurl(PicUtil.decode64(accountDto.getFaceImg()));
         FaceEngine faceEngine=new FaceEngine();
         faceEngine.active(addId,sdkKet);
         faceEngine.init(face.getengineConfig());
@@ -103,10 +108,11 @@ public class AuthController {
 
 
     @PostMapping("/userlogin")
-    public Result userLogin(@RequestBody UserDto userDto){
+    public Result userLogin(@RequestBody UserDto userDto) throws IOException {
         if (accountRepository.findByIdAndPassword(userDto.getId(),userDto.getPassword())==null){
             return ResultUtil.Error("用户名或密码错误");
         }
+        Account account=accountRepository.findById(userDto.getId());
         String jwt= CryptoUtil.issueJwt(
                 ShiroUtils.getShiroProperties().getJwtSecretKey()
                 , userDto.getId()
@@ -120,6 +126,9 @@ public class AuthController {
         map.put("id",userDto.getId());
         map.put("name",accountRepository.findByIdAndPassword(userDto.getId(),userDto.getPassword()).getName());
         map.put("jwt",jwt);
+        map.put("face",PicUtil.baseurl(account.getFaceurl()));
+        map.put("phonenum",account.getPhonenum());
+        map.put("email",account.getEmail());
         return ResultUtil.Success(map);
     }
 
@@ -156,7 +165,11 @@ public class AuthController {
         if (request.getSession().getAttribute("admin") == null) {
             return ResultUtil.Error("请先登录");
         }
-        return ResultUtil.Success(accountRepository.findAll());
+        List<Account> accounts=accountRepository.findAll();
+        accounts.stream().forEach(account -> {
+            account.setPassword(null);
+        });
+        return ResultUtil.Success(accounts);
     }
 
     @GetMapping("/deletebyid")
@@ -165,6 +178,8 @@ public class AuthController {
             return ResultUtil.Error("请先登录");
         }
         accountRepository.deleteAccountById(id);
+        meetingRepository.deleteByOriginator(id);
+        meetingAccountRepository.deleteByAccount(id);
         return ResultUtil.Success();
 
     }

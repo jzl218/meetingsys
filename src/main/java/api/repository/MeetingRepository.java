@@ -57,4 +57,5 @@ public interface MeetingRepository extends JpaRepository<Meeting,Integer> {
 
     List<Meeting> findByStarttimeBetween(long starttime ,long endtime);
 
+    void deleteByOriginator(String o);
 }
