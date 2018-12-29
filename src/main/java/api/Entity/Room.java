@@ -13,7 +13,7 @@ public class Room {
 
 //开放时间
     @Column
-    private String opentime;
+    private String opentime="00000000000000";
 
     @Column
     private int size;

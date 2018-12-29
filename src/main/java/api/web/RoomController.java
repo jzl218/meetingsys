@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -122,7 +123,7 @@ public class RoomController {
     @PostMapping("/selectbytime")//TODO
     public Result  selectRoomByMeetingTime(@RequestBody TimeDto timeDto) {
         String dayE=TimeUtils.getDataE(timeDto.getStarttime());
-        List<String> rooms2 = null;
+        List<String> rooms2 = new ArrayList<>();
         List<Room> rooms1=roomRepository.findAll();
             rooms1.stream().forEach(room -> {
             String opentime = room.getOpentime();
