@@ -134,27 +134,6 @@ public class MeetingController {
         String room=meetingDto.getRoom();
         Long starttime=meetingDto.getStarttime()-20*60*1000;
         Long endtime=meetingDto.getEndtime()+20*60*1000;
-        String opentime=roomRepository.findById(room).getOpentime();
-        String state=TimeUtils.getDataState(opentime,TimeUtils.getDataE(meetingDto.getStarttime()));;
-        if (TimeUtils.getOneDayTimestamps(meetingDto.getStarttime())<=60*1000*60*12&&
-        TimeUtils.getOneDayTimestamps(meetingDto.getEndtime())<=60*1000*60*12){
-            if (state.charAt(0)=='0'){
-               return ResultUtil.Error("会议室未开放");
-            }
-            else if (opentimeRepository.findByOpensLessThanAndOpeneGreaterThan(meetingDto.getStarttime(),meetingDto.getEndtime())==null)
-                return ResultUtil.Error("会议室未开放");
-        }
-        if (TimeUtils.getOneDayTimestamps(meetingDto.getStarttime())>=60*1000*60*12&&
-                TimeUtils.getOneDayTimestamps(meetingDto.getEndtime())>=60*1000*60*12){
-            if (state.charAt(1)=='0'){
-                return ResultUtil.Error("会议室未开放");
-            }
-            else if (opentimeRepository.findByOpenasLessThanAndOpenaeGreaterThan(meetingDto.getStarttime(),meetingDto.getEndtime())==null)
-                return ResultUtil.Error("会议室未开放");
-        }
-
-
-
         List<Meeting> meetings=meetingRepository.findByStateLessThanEqualAndStarttimeBetweenAndEndtimeBetween(3,starttime,endtime,starttime,endtime) ;
         if (meetings.size()==0){
             Meeting meeting=new Meeting();

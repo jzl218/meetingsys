@@ -96,8 +96,9 @@ public class FaceController {
                     maxKey = entry.getKey().toString();
                     rateVO.setId(maxKey);
                     rateVO.setData(value);
-                    rateVOS.add(rateVO);
+
                 }
+                rateVOS.add(rateVO);
             }
         }catch (IndexOutOfBoundsException e){
                 continue;
@@ -107,12 +108,8 @@ public class FaceController {
         List<RateVO> passrateVOs=rateVOS.stream().filter(rateVO -> {
                 return 100*rateVO.getData()>=passrate;
             }).collect(Collectors.toList());
-        List<Double> passrates=rateVOS.stream().map(rateVO -> {
-            return rateVO.getData();
-        }).collect(Collectors.toList());
-        Collections.sort(passrates);
-        if (passrateVOs.size()>=3&&passrates.get(passrates.size()-1)>=passmax)
-            return ResultUtil.Success(rateVOS.get(1).getId());
+        if (passrateVOs.size()>=3)
+            return ResultUtil.Success(passrateVOs.get(0).getId());
         else return ResultUtil.Error("识别失败或您没有参加此会议");
 
         //人脸对比

@@ -17,7 +17,7 @@ public class AccountDto {
     private String name;
 
 
-    private String face;
+    private String faceImg;
 
 
     private String phonenum;

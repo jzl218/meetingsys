@@ -12,9 +12,10 @@ import org.springframework.stereotype.Repository;
 public interface OpentimeRepository extends JpaRepository<Opentime,Integer> {
     Opentime findById(int id);
 
-
+    @Query(value = "select * from opentime where opens<=? and opene>=?",nativeQuery = true)
     Opentime findByOpensLessThanAndOpeneGreaterThan(long start,long end);
 
+    @Query(value = "select * from opentime where openas<=? and openae>=?",nativeQuery = true)
     Opentime findByOpenasLessThanAndOpenaeGreaterThan(long start,long end);
 
 }

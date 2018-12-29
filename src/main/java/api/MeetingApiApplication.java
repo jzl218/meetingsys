@@ -16,7 +16,7 @@ import java.util.Date;
 public class MeetingApiApplication {
     public static void main(String[] args) throws IOException {
         SpringApplication.run(MeetingApiApplication.class, args);
-
+        System.out.println(TimeUtils.getOneDayTimestamps(new Date().getTime()));
 //        System.out.println(TimeUtils.getDataE(new Date().getTime()+3*60*1000*60*24));
 //        System.out.println(TimeUtils.getTodayZeroPointTimestamps());
 //        System.out.println(TimeUtils.getOneDayTimestamps(new Date().getTime()));

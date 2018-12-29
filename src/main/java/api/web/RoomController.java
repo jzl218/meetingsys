@@ -123,24 +123,26 @@ public class RoomController {
     @PostMapping("/selectbytime")//TODO
     public Result  selectRoomByMeetingTime(@RequestBody TimeDto timeDto) {
         String dayE=TimeUtils.getDataE(timeDto.getStarttime());
+        Opentime opentimeObj=opentimeRepository.findById(1);
         List<String> rooms2 = new ArrayList<>();
         List<Room> rooms1=roomRepository.findAll();
             rooms1.stream().forEach(room -> {
             String opentime = room.getOpentime();
             String state = TimeUtils.getDataState(opentime, TimeUtils.getDataE(timeDto.getStarttime()));
-
-            if (TimeUtils.getOneDayTimestamps(timeDto.getStarttime()) <= 60 * 1000 * 60 * 4 &&
-                    TimeUtils.getOneDayTimestamps(timeDto.getEndtime()) <= 60 * 1000 * 60 * 4) {
+            Long onedays=TimeUtils.getOneDayTimestamps(timeDto.getStarttime());
+            Long onedaye=TimeUtils.getOneDayTimestamps(timeDto.getEndtime());
+            if (onedays <= 60 * 1000 * 60 * 4&&
+                onedaye<= 60 * 1000 * 60 * 4) {
                 if (state.charAt(0) == '0') {
                     rooms2.add(room.getId());
-                } else if (opentimeRepository.findByOpensLessThanAndOpeneGreaterThan(timeDto.getStarttime(), timeDto.getEndtime()) == null)
+                } else if (!(opentimeObj.getOpens()<=onedays&&opentimeObj.getOpene()>=onedaye))
                     rooms2.add(room.getId());
             }
             if (TimeUtils.getOneDayTimestamps(timeDto.getStarttime()) >= 60 * 1000 * 60 * 4 &&
                     TimeUtils.getOneDayTimestamps(timeDto.getEndtime()) >= 60 * 1000 * 60 * 4) {
                 if (state.charAt(1) == '0') {
                     rooms2.add(room.getId());
-                } else if (opentimeRepository.findByOpenasLessThanAndOpenaeGreaterThan(timeDto.getStarttime(), timeDto.getEndtime()) == null)
+                } else if (!(opentimeObj.getOpenas()<=onedays&&opentimeObj.getOpenae()>=onedaye))
                     rooms2.add(room.getId());
             }
         });
@@ -148,15 +150,21 @@ public class RoomController {
         Long nendtime = timeDto.getEndtime()+20*60*1000;
         List<Meeting> meetings = meetingRepository.findByStateLessThanEqualAndStarttimeBetweenAndEndtimeBetween(3,nstarttime,nendtime,nstarttime,nendtime);
         if (meetings.size()==0){
-            return ResultUtil.Success(roomRepository.findAll());
+            if (rooms2.size()==0){
+                return ResultUtil.Success(roomRepository.findAll());
+            }
+            List<Room> rooms=roomRepository.findByIdNotInOrderById(rooms2);
+            return ResultUtil.Success(rooms);
         }
-        meetings.stream().forEach(meeting -> {
-            rooms2.add(meeting.getRoom());
-        });
+        else {
+            meetings.stream().forEach(meeting -> {
+                rooms2.add(meeting.getRoom());
+            });
 
-        List<Room> rooms=roomRepository.findByIdNotInOrderById(rooms2);
+            List<Room> rooms = roomRepository.findByIdNotInOrderById(rooms2);
 
-        return ResultUtil.Success(rooms);
+            return ResultUtil.Success(rooms);
+        }
     }
 
 

@@ -16,7 +16,7 @@ public class TimeUtils {
 
     public static Long getOneDayTimestamps(long time){
         Long oneDayTimestamps= Long.valueOf(60*60*24*1000);
-        return (time+60*60*8*1000)%oneDayTimestamps;
+        return time-getOneDayZeroPointTimestamps(time)-60*1000*60*8;
     }
 
     public static String getDataE(long time){
