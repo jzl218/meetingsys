@@ -1,7 +1,10 @@
 package api.web;
 
+import api.Dto.JoinDto;
+import api.Dto.JoinerDto;
 import api.Dto.MeetingDto;
 import api.Dto.OrderDto;
+import api.Entity.Account;
 import api.Entity.Meeting;
 import api.Entity.MeetingAcoount;
 import api.Entity.Opentime;
@@ -10,6 +13,7 @@ import api.sevice.AccountProviderImpl;
 import api.utils.BeanUtils;
 import api.utils.ResultUtil;
 import api.utils.TimeUtils;
+import api.vo.AccountMVO;
 import api.vo.MeetingVO;
 import api.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +37,7 @@ public class MeetingController {
     private MeetingAccountRepository meetingAccountRepository;
     @Autowired
     private AccountRepository accountRepository;
+
     @Autowired
     private RoomRepository roomRepository;
     @Autowired
@@ -427,5 +432,35 @@ public class MeetingController {
 
     }
 
+
+    @GetMapping("/getjoiner")//TODO
+    public Result getJoiner(int meeting){
+        if (meetingRepository.findByIdAndOriginatorAndStateBetween(meeting,accountProvider.getNowAccout().getId(),1,4)==null){
+            return ResultUtil.Error("会议未通过审核或您不是发起人");
+        }
+
+        Meeting nmeeting=meetingRepository.findByIdAndOriginatorAndStateBetween(meeting,accountProvider.getNowAccout().getId(),1,4);
+        List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByMeeting(nmeeting.getId());
+        List <AccountMVO> accounts=meetingAcoounts.stream().filter(meetingAcoount -> {
+            return !meetingAcoount.getAccount().equals(accountProvider.getNowAccout().getAccount());
+        }).map(meetingAcoount -> {
+            AccountMVO accountMVO=new AccountMVO();
+            Account account=accountRepository.findById(meetingAcoount.getAccount());
+            BeanUtils.copyProperties(account,accountMVO);
+            if (nmeeting.getIsentered()==0)
+                accountMVO.setSigntime(meetingAcoount.getSigntime());
+            return accountMVO;
+        }).collect(Collectors.toList());
+
+        return ResultUtil.Success(accounts);
+    }
+
+
+
+    @PostMapping("/deletejoiner")//TODO
+    public Result deleteJoiner(@RequestBody JoinerDto joinDto){
+        meetingAccountRepository.deleteByMeetingAndAccount(joinDto.getMeeting(),joinDto.getJoiner());
+        return ResultUtil.Success("删除成功");
+    }
 
 }
