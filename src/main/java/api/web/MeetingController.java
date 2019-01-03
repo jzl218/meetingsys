@@ -173,7 +173,7 @@ public class MeetingController {
             return  ResultUtil.Error("邀请码错误");
         }
         Meeting meeting=meetingRepository.findByInvitecode(inviteCode);
-        if (meeting.getState()==1&&meeting.getIsentered()==1){
+        if (meeting.getState()==1){
         meetingAcoount.setMeeting(meeting.getId());
         meetingAcoount.setAccount(accountProvider.getNowAccout().getId());
         meetingAcoount.setSigntime(0);
