@@ -1,5 +1,6 @@
 package api.web;
 
+import api.Dto.DeviceDto;
 import api.Entity.Device;
 import api.repository.DeviceRepository;
 import api.utils.ResultUtil;
@@ -40,14 +41,14 @@ public class DeviceController {
     }
 
     @PostMapping("/update")
-    public Result updateRoom(int device,int newdevice,HttpServletRequest session){
+    public Result updateRoom(@RequestBody DeviceDto deviceDto, HttpServletRequest session){
         if (session.getSession().getAttribute("admin")==null){
             return ResultUtil.Error("请先登录");
         }
-        Device updevice=deviceRepository.findById(device);
-        updevice.setId(newdevice);
+        Device updevice=deviceRepository.findById(deviceDto.getDevice());
+        updevice.setId(deviceDto.getNewdevice());
         if (deviceRepository.save(updevice)!=null)
-            return ResultUtil.Success(newdevice);
+            return ResultUtil.Success(deviceDto.getNewdevice());
         else return ResultUtil.Error("更新失败");
     }
 
