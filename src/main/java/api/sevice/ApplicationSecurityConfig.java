@@ -1,6 +1,6 @@
 /*
  * Copyright 2017-2018 the original author(https://github.com/wj596)
- * 
+ *
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,9 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 系统安全配置
  * 继承自JsetsShiroConfigurationAdapter以扩展、定制鉴权组件
- * 
- * @author wangjie (https://github.com/wj596) 
- * @date 2016年8月05日 
+ *
+ * @author wangjie (https://github.com/wj596)
+ * @date 2016年8月05日
  *
  */
 

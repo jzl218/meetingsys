@@ -112,6 +112,7 @@ public class AuthController {
         if (accountRepository.findByIdAndPassword(userDto.getId(),userDto.getPassword())==null){
             return ResultUtil.Error("用户名或密码错误");
         }
+
         Account account=accountRepository.findById(userDto.getId());
         String jwt= CryptoUtil.issueJwt(
                 ShiroUtils.getShiroProperties().getJwtSecretKey()
@@ -122,6 +123,8 @@ public class AuthController {
                 ,null
                 , SignatureAlgorithm.HS512
         );
+        accountProvider.setNowAccout(accountRepository.findById(userDto.getId()));
+
         Map map=new HashMap();
         map.put("id",userDto.getId());
         map.put("name",accountRepository.findByIdAndPassword(userDto.getId(),userDto.getPassword()).getName());

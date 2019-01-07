@@ -15,6 +15,8 @@ import api.vo.RateVO;
 import api.vo.Result;
 import com.arcsoft.face.*;
 import com.arcsoft.face.enums.ImageFormat;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
-
+@Slf4j
 @RestController
 @RequestMapping("/face")
 public class FaceController {
@@ -83,7 +85,8 @@ public class FaceController {
             List<FaceInfo> faceInfoList = new ArrayList<FaceInfo>();
             faceEngine.detectFaces(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList);
             FaceFeature faceFeature = new FaceFeature();
-            faceEngine.extractFaceFeature(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList.get(0), faceFeature);
+            int x=faceEngine.extractFaceFeature(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList.get(0), faceFeature);
+            log.info(String.valueOf(x));
             FaceFeature targetFaceFeature = new FaceFeature();
             targetFaceFeature.setFeatureData(faceFeature.getFeatureData());
             Map hashMap = new HashMap();
@@ -124,7 +127,10 @@ public class FaceController {
             FaceVO faceVO=new FaceVO();
             int Isentered=meetingRepository.findById(imgDto.getMeeting()).getIsentered();
             if (Isentered==0){
-                MeetingAcoount meetingAcoount=meetingAccountRepository.findByMeetingAndAccount(imgDto.getMeeting(),accountRepository.findById(passrateVOs.get(0).getId()).getName());
+                MeetingAcoount meetingAcoount=meetingAccountRepository.findByMeetingAndAccount(imgDto.getMeeting(),passrateVOs.get(0).getId());
+                if (meetingAcoount==null){
+                    return ResultUtil.Error("识别失败或您没有参加此会议");
+                }
                 meetingAcoount.setSigntime(new Date().getTime());
                 meetingAccountRepository.save(meetingAcoount);
             }
