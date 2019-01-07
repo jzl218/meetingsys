@@ -14,7 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-
+@Getter
 @Setter
 public class AccountProviderImpl implements ShiroAccountProvider {
     @Autowired
