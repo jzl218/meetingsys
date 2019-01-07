@@ -123,7 +123,6 @@ public class AuthController {
                 ,null
                 , SignatureAlgorithm.HS512
         );
-        accountProvider.setNowAccout(accountRepository.findById(userDto.getId()));
 
         Map map=new HashMap();
         map.put("id",userDto.getId());
