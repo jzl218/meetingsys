@@ -435,9 +435,9 @@ public class MeetingController {
 
     @GetMapping("/getjoiner")//TODO
     public Result getJoiner(int meeting){
-        if (meetingRepository.findByIdAndOriginatorAndStateBetween(meeting,accountProvider.getNowAccout().getId(),1,4)==null){
-            return ResultUtil.Error("会议未通过审核或您不是发起人");
-        }
+//        if (meetingRepository.findByIdAndOriginatorAndStateBetween(meeting,accountProvider.getNowAccout().getId(),1,4)==null){
+//            return ResultUtil.Error("会议未通过审核或您不是发起人");
+//        }
 
         Meeting nmeeting=meetingRepository.findByIdAndOriginatorAndStateBetween(meeting,accountProvider.getNowAccout().getId(),1,4);
         List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByMeeting(nmeeting.getId());
