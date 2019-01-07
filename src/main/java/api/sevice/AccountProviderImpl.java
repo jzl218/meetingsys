@@ -20,18 +20,9 @@ public class AccountProviderImpl implements ShiroAccountProvider {
     @Autowired
     private AccountRepository accountRepository;
 
-    public void setNowAccout(api.Entity.Account nowAccout) {
 
-        this.nowAccout = nowAccout;
-    }
-
-    public api.Entity.Account getNowAccout() {
-        return nowAccout;
-    }
 
     private api.Entity.Account nowAccout;
-
-
 
     @Override
     public Account loadAccount(String account) throws AuthenticationException {
