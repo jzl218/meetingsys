@@ -33,10 +33,7 @@ public class AccountProviderImpl implements ShiroAccountProvider {
 
     @Override
     public Set<String> loadRoles(String account) {
-        String jwt= JsonUtils.getAccount(account);
-        nowAccout=accountRepository.findById(jwt);
         Set<String> roles=new HashSet<>();
-
         return roles;
     }
 

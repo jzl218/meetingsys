@@ -11,11 +11,14 @@ import api.Entity.Opentime;
 import api.repository.*;
 import api.sevice.AccountProviderImpl;
 import api.utils.BeanUtils;
+import api.utils.JsonUtils;
 import api.utils.ResultUtil;
 import api.utils.TimeUtils;
 import api.vo.AccountMVO;
 import api.vo.MeetingVO;
 import api.vo.Result;
+import org.apache.shiro.SecurityUtils;
+import org.jsets.shiro.util.ShiroUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -145,7 +148,7 @@ public class MeetingController {
             BeanUtils.copyProperties(meetingDto,meeting);
             meeting.setInvitecode(UUID.randomUUID().toString());
             meeting.setState(0);
-            meeting.setOriginator(accountProvider.getNowAccout().getId());
+            meeting.setOriginator(accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId());
             meeting.setIsentered(0);
             meeting.setStarttime(meetingDto.getStarttime());
             meeting.setEndtime(meetingDto.getEndtime());
@@ -175,7 +178,7 @@ public class MeetingController {
         Meeting meeting=meetingRepository.findByInvitecode(inviteCode);
         if (meeting.getState()==1){
         meetingAcoount.setMeeting(meeting.getId());
-        meetingAcoount.setAccount(accountProvider.getNowAccout().getId());
+        meetingAcoount.setAccount(accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId());
         meetingAcoount.setSigntime(0);
         meetingAccountRepository.save(meetingAcoount);
             return ResultUtil.Success();
@@ -186,7 +189,7 @@ public class MeetingController {
     //查看自己会议
     @GetMapping("/mymeeting")//TODO
     public Result selectMyMeeting(){
-        String account=accountProvider.getNowAccout().getId();
+        String account=accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId();
         List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByAccount(account);
         List<MeetingVO> meetings=meetingAcoounts.stream()
                 .map(meetingAcoount -> {
@@ -206,7 +209,7 @@ public class MeetingController {
         int state=orderDto.getState();
         int size=orderDto.getSize();
         int page=orderDto.getPage()*size;
-        String account=accountProvider.getNowAccout().getId();
+        String account=accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId();
         List<Meeting> meetings=meetingRepository.findByOriginatorAndState(state,account,page,size);
         List<MeetingVO> meetingVOS=meetings.stream()
                 .map(meeting -> {
@@ -223,7 +226,7 @@ public class MeetingController {
 
     @GetMapping("/selectbyorder")//TODO
     public Result selectOrder() {
-        String account=accountProvider.getNowAccout().getId();
+        String account=accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId();
         List<Meeting> meetings=meetingRepository.findByOriginatorOrderByStarttimeDesc(account);
         List<MeetingVO> meetingVOS=meetings.stream()
                 .map(meeting -> {
@@ -241,7 +244,7 @@ public class MeetingController {
     public Result selectAllOrder(@RequestBody OrderDto orderDto) {
         int size=orderDto.getSize();
         int page=orderDto.getPage()*size;
-        String account=accountProvider.getNowAccout().getId();
+        String account=accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId();
         List<Meeting> meetings=meetingRepository.findByOriginatorAndState(account,page,size);
         List<MeetingVO> meetingVOS=meetings.stream()
                 .map(meeting -> {
@@ -262,7 +265,7 @@ public class MeetingController {
         int state=orderDto.getState();
         int size=orderDto.getSize();
         int page=orderDto.getPage()*size;
-        String account=accountProvider.getNowAccout().getId();
+        String account=accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId();
         List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByAccount(account);
         List<Integer> id=meetingAcoounts.stream()
                 .map(meetingAcoount -> {
@@ -270,7 +273,7 @@ public class MeetingController {
                 }).collect(Collectors.toList());
         List<Meeting> meetings=meetingRepository.findByIdIn(state,id,page,size);
         List<MeetingVO> meetingVOS=meetings.stream().filter(meeting -> {
-            return !meeting.getOriginator().equals(accountProvider.getNowAccout().getAccount());
+            return !meeting.getOriginator().equals(accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getAccount());
         })
                 .map(meeting -> {
                     MeetingVO meetingVO=new MeetingVO();
@@ -287,7 +290,8 @@ public class MeetingController {
 
     @GetMapping("/selectall")//TODO
     public Result selectAll(){
-        String account=accountProvider.getNowAccout().getId();
+        Account account2= accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal()));
+        String account=accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId();
         List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByAccount(account);
         List<Integer> id=meetingAcoounts.stream()
                 .map(meetingAcoount -> {
@@ -307,7 +311,7 @@ public class MeetingController {
 
     @GetMapping("/selectbyjoin")//TODO
     public Result selectJoin(){
-        String account=accountProvider.getNowAccout().getId();
+        String account=accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId();
         List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByAccount(account);
         List<Integer> id=meetingAcoounts.stream()
                 .map(meetingAcoount -> {
@@ -315,7 +319,7 @@ public class MeetingController {
                 }).collect(Collectors.toList());
         List<Meeting> meetings=meetingRepository.findByIdIn(id);
         List<MeetingVO> meetingVOS=meetings.stream().filter(meeting -> {
-            return !meeting.getOriginator().equals(accountProvider.getNowAccout().getAccount());
+            return !meeting.getOriginator().equals(accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getAccount());
         }).map(meeting -> {
                     MeetingVO meetingVO=new MeetingVO();
                     BeanUtils.copyProperties(meeting,meetingVO);
@@ -331,7 +335,7 @@ public class MeetingController {
     public Result selectAllJoin(@RequestBody OrderDto orderDto){
         int size=orderDto.getSize();
         int page=orderDto.getPage()*size;
-        String account=accountProvider.getNowAccout().getId();
+        String account=accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId();
         List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByAccount(account);
         List<Integer> id=meetingAcoounts.stream()
                 .map(meetingAcoount -> {
@@ -339,7 +343,7 @@ public class MeetingController {
                 }).collect(Collectors.toList());
         List<Meeting> meetings=meetingRepository.findByIdIn(id,page,size);
         List<MeetingVO> meetingVOS=meetings.stream().filter(meeting -> {
-            return !meeting.getOriginator().equals(accountProvider.getNowAccout().getAccount());
+            return !meeting.getOriginator().equals(accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getAccount());
         })
                 .map(meeting -> {
                     MeetingVO meetingVO=new MeetingVO();
@@ -356,14 +360,14 @@ public class MeetingController {
 
     @GetMapping("/getordercount")//TODO
     public Result getOrdercount(int state){
-        String account=accountProvider.getNowAccout().getId();
+        String account=accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId();
         return ResultUtil.Success(meetingRepository.findByOriginatorAndState(account,state).size());
 
     }
 
     @GetMapping("/getjoincount")//TODO
     public Result getJoinCount(int state){
-        String account=accountProvider.getNowAccout().getId();
+        String account=accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId();
         List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByAccount(account);
         List<Integer> id=meetingAcoounts.stream()
                 .map(meetingAcoount -> {
@@ -382,13 +386,13 @@ public class MeetingController {
             return ResultUtil.Error("会议未审核或已结束");
         MeetingVO meetingVO=new MeetingVO();
         BeanUtils.copyProperties(meeting,meetingVO);
-        meetingVO.setOriginatorName(accountRepository.findById(accountProvider.getNowAccout().getId()).getName());
+        meetingVO.setOriginatorName(accountRepository.findById(accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId()).getName());
         return ResultUtil.Success(meetingVO);
     }
 
     @GetMapping("/cancel")//TODO
     public Result cancelMeeting(int meeting){
-        String id=accountProvider.getNowAccout().getId();
+        String id=accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getId();
         if (meetingRepository.findByIdAndOriginator(meeting,id)==null){
             return ResultUtil.Error("失败");
         }
@@ -442,7 +446,7 @@ public class MeetingController {
         Meeting nmeeting=meetingRepository.findByIdAndOriginatorAndStateBetween(meeting,id,1,4);
         List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByMeeting(nmeeting.getId());
         List <AccountMVO> accounts=meetingAcoounts.stream().filter(meetingAcoount -> {
-            return !meetingAcoount.getAccount().equals(accountProvider.getNowAccout().getAccount());
+            return !meetingAcoount.getAccount().equals(accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getAccount());
         }).map(meetingAcoount -> {
             AccountMVO accountMVO=new AccountMVO();
             Account account=accountRepository.findById(meetingAcoount.getAccount());

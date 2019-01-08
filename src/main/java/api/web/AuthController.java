@@ -22,6 +22,8 @@ import com.arcsoft.face.FaceFeature;
 import com.arcsoft.face.FaceInfo;
 import com.arcsoft.face.enums.ImageFormat;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.apache.shiro.SecurityUtils;
+import org.jsets.shiro.token.JwtToken;
 import org.jsets.shiro.util.CryptoUtil;
 import org.jsets.shiro.util.ShiroUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -32,7 +32,6 @@ public class FilteRulesProviderImpl implements ShiroFilteRulesProvider {
         Arrays.stream(authApis).forEach(authApi->{
             RolePermRule jwtRule=new RolePermRule();
             jwtRule.setUrl(authApi.getUrl());
-            jwtRule.setNeedRoles("base");
             jwtRules.add(jwtRule);
         });
 
