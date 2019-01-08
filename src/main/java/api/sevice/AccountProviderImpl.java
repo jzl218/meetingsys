@@ -36,7 +36,6 @@ public class AccountProviderImpl implements ShiroAccountProvider {
         String jwt= JsonUtils.getAccount(account);
         nowAccout=accountRepository.findById(jwt);
         Set<String> roles=new HashSet<>();
-        roles.add("base");
         return roles;
     }
 
