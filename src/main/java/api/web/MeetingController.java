@@ -434,12 +434,12 @@ public class MeetingController {
 
 
     @GetMapping("/getjoiner")//TODO
-    public Result getJoiner(int meeting){
-//        if (meetingRepository.findByIdAndOriginatorAndStateBetween(meeting,accountProvider.getNowAccout().getId(),1,4)==null){
-//            return ResultUtil.Error("会议未通过审核或您不是发起人");
-//        }
+    public Result getJoiner(int meeting,String id){
+        if (meetingRepository.findByIdAndOriginatorAndStateBetween(meeting,id,1,4)==null){
+            return ResultUtil.Error("会议未通过审核或您不是发起人");
+        }
 
-        Meeting nmeeting=meetingRepository.findByIdAndOriginatorAndStateBetween(meeting,accountProvider.getNowAccout().getId(),1,4);
+        Meeting nmeeting=meetingRepository.findByIdAndOriginatorAndStateBetween(meeting,id,1,4);
         List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByMeeting(nmeeting.getId());
         List <AccountMVO> accounts=meetingAcoounts.stream().filter(meetingAcoount -> {
             return !meetingAcoount.getAccount().equals(accountProvider.getNowAccout().getAccount());
