@@ -92,8 +92,40 @@ public class AuthController {
         Account account=new Account();
         BeanUtils.copyProperties(accountDto,account);
         String file= PicUtil.decode64(accountDto.getFaceImg());
-        ImageInfo imageInfo=face.getRGBData(new File(file));
-        account.setFaceurl(PicUtil.decode64(accountDto.getFaceImg()));
+        try {
+
+
+            ImageInfo imageInfo = face.getRGBData(new File(file));
+            account.setFaceurl(PicUtil.decode64(accountDto.getFaceImg()));
+            FaceEngine faceEngine = new FaceEngine();
+            faceEngine.active(addId, sdkKet);
+            faceEngine.init(face.getengineConfig());
+            List<FaceInfo> faceInfoList = new ArrayList<FaceInfo>();
+            faceEngine.detectFaces(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList);
+            FaceFeature faceFeature = new FaceFeature();
+            faceEngine.extractFaceFeature(imageInfo.getRgbData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList.get(0), faceFeature);
+            account.setFace(faceFeature.getFeatureData());
+        }catch (IndexOutOfBoundsException e){
+            return ResultUtil.Error("请录入正确的人脸信息");
+        }
+        if (accountRepository.save(account)!=null){
+            return ResultUtil.Success();
+        }
+        else return  ResultUtil.Error("注册失败");
+    }
+
+
+
+    @PostMapping("/register2")
+    public Result userRegister() throws IOException {
+        Account account=new Account();
+        account.setId("555");
+        account.setName("豚鼠先生");
+        account.setEmail("12@23.com");
+        account.setPhonenum("13122340596");
+        account.setPassword("123456");
+        ImageInfo imageInfo=face.getRGBData(new File("pic/1.jpg"));
+        account.setFaceurl("pic/1.jpg");
         FaceEngine faceEngine=new FaceEngine();
         faceEngine.active(addId,sdkKet);
         faceEngine.init(face.getengineConfig());
@@ -107,7 +139,6 @@ public class AuthController {
         }
         else return  ResultUtil.Error("注册失败");
     }
-
 
     @PostMapping("/userlogin")
     public Result userLogin(@RequestBody UserDto userDto) throws IOException {
