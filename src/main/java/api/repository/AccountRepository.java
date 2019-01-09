@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
+@Transactional
 public interface AccountRepository extends JpaRepository<Account,Integer> {
     Account findByName(String name);
 
@@ -18,7 +19,7 @@ public interface AccountRepository extends JpaRepository<Account,Integer> {
     Account findById(String id);
 
     List<Account> findByIdIn(List<String> ids);
-    @Transactional
+
     void  deleteAccountById(String id);
 
 }
