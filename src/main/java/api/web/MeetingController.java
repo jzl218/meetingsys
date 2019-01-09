@@ -446,7 +446,7 @@ public class MeetingController {
         Meeting nmeeting=meetingRepository.findByIdAndOriginatorAndStateBetween(meeting,id,1,4);
         List<MeetingAcoount> meetingAcoounts=meetingAccountRepository.findByMeeting(nmeeting.getId());
         List <AccountMVO> accounts=meetingAcoounts.stream().filter(meetingAcoount -> {
-            return !meetingAcoount.getAccount().equals(accountRepository.findById(JsonUtils.getAccount((String)SecurityUtils.getSubject().getPrincipal())).getAccount());
+            return !meetingAcoount.getAccount().equals(accountRepository.findById(id).getAccount());
         }).map(meetingAcoount -> {
             AccountMVO accountMVO=new AccountMVO();
             Account account=accountRepository.findById(meetingAcoount.getAccount());
