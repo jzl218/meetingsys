@@ -168,7 +168,7 @@ public class RoomController {
     }
 
 
-    
+
     @PostMapping("/selectbyall")
     public Result selectByAll(@RequestBody Meeting meetingDto){
         String dayE=TimeUtils.getDataE(meetingDto.getStarttime());
@@ -246,9 +246,9 @@ public class RoomController {
     public Result todayUse(String room){
         Long todayzero= TimeUtils.getTodayZeroPointTimestamps();
         Long after=todayzero+60*60*24*1000;
-        if(meetingRepository.findByRoomAndStarttimeBetweenOrderByStarttime(room,todayzero,after)==null)
+        if(meetingRepository.findByRoomAndStarttimeBetweenAndStateOrderByStarttime(room,todayzero,after,1)==null)
             return ResultUtil.Error("当天没有会议");
-        List<Meeting> meetings=meetingRepository.findByRoomAndStarttimeBetweenOrderByStarttime(room,todayzero,after);
+        List<Meeting> meetings=meetingRepository.findByRoomAndStarttimeBetweenAndStateOrderByStarttime(room,todayzero,after,1);
         List<MeetingVO> meetings1=meetings.stream().map(meeting -> {
             MeetingVO meetingVO=new MeetingVO();
             BeanUtils.copyProperties(meeting,meetingVO);
@@ -262,9 +262,9 @@ public class RoomController {
     @GetMapping("/nowuse")
     public Result nowUse(String room){
         Long currentTimestamps=System.currentTimeMillis();
-        if (meetingRepository.findByRoomAndStarttimeLessThanAndEndtimeGreaterThan(room,currentTimestamps,currentTimestamps)==null)
+        if (meetingRepository.findByRoomAndStarttimeLessThanAndEndtimeGreaterThanAndState(room,currentTimestamps,currentTimestamps,1)==null)
             return ResultUtil.Error("现在没有会议");
-        Meeting meeting=meetingRepository.findByRoomAndStarttimeLessThanAndEndtimeGreaterThan(room,currentTimestamps,currentTimestamps);
+        Meeting meeting=meetingRepository.findByRoomAndStarttimeLessThanAndEndtimeGreaterThanAndState(room,currentTimestamps,currentTimestamps,1);
         MeetingVO meetingVO=new MeetingVO();
         BeanUtils.copyProperties(meeting,meetingVO);
         meetingVO.setOriginatorName(accountRepository.findById(meeting.getOriginator()).getName());
