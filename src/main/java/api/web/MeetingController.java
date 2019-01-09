@@ -412,7 +412,7 @@ public class MeetingController {
         if (meetingRepository.findById(meeting.getId()).get()==null)
             return ResultUtil.Error("找不到会议");
         Meeting meeting1=meetingRepository.findById(meeting.getId()).get();
-        BeanUtils.copyProperties(meeting,meeting1);
+        meeting1.setState(meeting.getState());
         if (meetingRepository.save(meeting1)!=null)
             return ResultUtil.Success(meeting1);
         else return ResultUtil.Error("更新失败");
