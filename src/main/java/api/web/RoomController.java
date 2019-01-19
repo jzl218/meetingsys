@@ -304,7 +304,7 @@ public class RoomController {
         List<Room> rooms1=rooms.stream().filter(room -> {
             String opentime=room.getOpentime();
             String state=TimeUtils.getDataState(opentime,openTimeDto.getWeek());
-            return state.charAt(openTimeDto.getMoring())==1;
+            return state.charAt(openTimeDto.getMorning())==1;
         }).collect(Collectors.toList());
         if (rooms1.size()==0){
             return ResultUtil.Error("没有开放的会议室");
