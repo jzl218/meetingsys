@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="starttime" placeholder="starttime">
+<br>
+<input type="text" id="endtime" placeholder="endtime">
+<br>
+<input type="number" id="size" placeholder="size">
+<br>
+<input type="text" id="room" placeholder="room">
+<br>
+<input type="text" id="theme" placeholder="theme">
+<br>
+<input type="button" id="add" value="预约">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<input type="text" id="sizesearch" placeholder="按大小搜索">
+<br>
+<input type="button" id="searchbysize" value="搜索">
+
+
+<table id="result" border="1px" style="text-align: center">
+<thead>
+<th>编号</th>
+<th>大小</th>
+</thead>
+
+
+</table>
+
+</body>
+<script>
+    $("#add").click(function () {
+        axios.post('/api/meeting/add',
+            {
+                starttime:new Date($("#starttime").val()).getTime(),
+                endtime:new Date($("#endtime").val()).getTime(),
+                size:$("#size").val(),
+                room:$("#room").val(),
+                theme:$("#theme").val(),
+
+            },
+            {
+                headers:{
+                    Authorization:localStorage.getItem("jwt")
+                }
+            }
+
+        )
+            .then(function (response) {
+                if (response.data.code===0){
+                    alert("预定成功")
+                }
+                if (response.data.code===1){
+                    alert("该时间已被预定")
+                }
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    })
+
+
+    $("#searchbysize").click(function () {
+        // alert("xxxx")
+        axios.get(`/api/room/uselectbysize?size=${$("#sizesearch").val()}`,
+            {
+                headers:{
+                    Authorization:localStorage.getItem("jwt")
+                }
+            }
+
+        )
+            .then(function (response) {
+                if (response.data.code===0){
+                    for (var i=0;i<response.data.data.length;i++){
+                        $("#result").html("")
+                        $("#result").append(`
+                            <tr>
+                                <td>${response.data.data[i].id}</td>
+                                 <td>${response.data.data[i].size}</td>
+                            </tr>
+                        `)
+                    }
+                }
+
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    })
+
+
+    axios.get(`/api/room/selectAll`,
+        {
+            headers:{
+                Authorization:localStorage.getItem("jwt")
+            }
+        }
+
+    )
+        .then(function (response) {
+            if (response.data.code===0){
+                for (var i=0;i<response.data.data.length;i++){
+                    $("#result").append(`
+                            <tr>
+                                <td>${response.data.data[i].id}</td>
+                                 <td>${response.data.data[i].size}</td>
+                            </tr>
+                        `)
+                }
+            }
+
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+</script>
+</html>

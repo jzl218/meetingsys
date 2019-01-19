@@ -6,5 +6,5 @@ import lombok.Data;
 public class OpenTimeDto {
     private String week;
 
-    private int moring;
+    private int morning;
 }

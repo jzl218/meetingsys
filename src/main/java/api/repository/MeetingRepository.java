@@ -39,7 +39,6 @@ public interface MeetingRepository extends JpaRepository<Meeting,Integer> {
     @Query(value = "select * from meeting where originator=? order by starttime desc limit ?,?",nativeQuery = true)
     List<Meeting> findByOriginatorAndState(String originator,int page,int size);
 
-
     @Query(value = "select * from meeting where state=? and originator=? order by starttime desc limit ?,?",nativeQuery = true)
     List<Meeting> findByOriginatorAndState(int state,String originator,int page,int size);
 

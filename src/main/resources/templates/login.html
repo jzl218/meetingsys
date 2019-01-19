@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<form>
+<input type="text" id="account" placeholder="用户名">
+    <br>
+<input type="password" id="password" placeholder="密码">
+    <br>
+<input type="button" id="login" value="登录">
+</form>
+
+<script>
+    $("#login").click(function () {
+        axios.post('/api/auth/userlogin',
+            {
+                id:$("#account").val(),
+                password:$("#password").val()
+
+            }
+
+        )
+            .then(function (response) {
+                if (response.data.code===0){
+                    localStorage.setItem("jwt",response.data.data.jwt)
+                    alert("登录成功")
+                    window.location.href="/api/add"
+                }
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    })
+
+</script>
+</body>
+</html>
